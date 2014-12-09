@@ -11,8 +11,8 @@
     </adfmf:content>
   </adfmf:feature>
   <adfmf:feature id="aeg.cw.Clients" name="Clients">
-    <adfmf:content id="aeg.cw.Clients.1">
-      <adfmf:amx file="aeg.cw.Clients/clients.amx"/>
+    <adfmf:content id="aeg.cw.Clients.2">
+      <adfmf:amx file="aeg.cw.Clients/Clients-tf.xml#Clients-tf"/>
     </adfmf:content>
   </adfmf:feature>
   <adfmf:feature id="aeg.cw.Documents" name="Documents">

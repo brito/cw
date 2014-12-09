@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<view xmlns="http://xmlns.oracle.com/adf/mf/amx">
+    <panelPage>
+        <facet name="primary">
+            <commandButton actionListener="#{bindings.gotoSpringboard.execute}" styleClass="fa-bars"/>
+        </facet>
+        
+        <listView var="row" value="#{bindings.clients.collectionModel}" fetchSize="#{bindings.clients.rangeSize}"
+                  selectedRowKeys="#{bindings.clients.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.clients.collectionModel.makeCurrent}" dividerAttribute="lastName"
+                  dividerMode="all" showMoreStrategy="autoScroll" bufferStrategy="viewport">
+            <listItem action="details">
+                <image source="#{row.photo}"/>
+                <outputText value="#{row.lastName},#{row.firstName}"/>
+                <outputText value="#{row.clientId}" styleClass="adfmf-listItem-captionText"/>
+            </listItem>
+        </listView>
+        
+    </panelPage>
+</view>

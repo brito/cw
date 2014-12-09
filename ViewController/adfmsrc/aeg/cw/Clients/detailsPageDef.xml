@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.40" id="detailsPageDef"
+                Package="aeg.cw.Clients">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="HHSService" id="HHSServiceIterator"/>
+    <accessorIterator MasterBinding="HHSServiceIterator" Binds="clients" RangeSize="25" DataControl="HHSService"
+                      BeanClass="aeg.cw.mobile.Client" id="clientsIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="clientsIterator" id="photo">
+      <AttrNames>
+        <Item Value="photo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="clientsIterator" id="firstName">
+      <AttrNames>
+        <Item Value="firstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="clientsIterator" id="clientId">
+      <AttrNames>
+        <Item Value="clientId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="clientsIterator" id="score">
+      <AttrNames>
+        <Item Value="score"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="clientsIterator" id="lastName">
+      <AttrNames>
+        <Item Value="lastName"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -12,6 +12,8 @@
     <page path="/aeg.cw.Contacts/contacts.amx" usageId="aeg_cw_mobile_contactsPageDef"/>
     <page path="/aeg.cw.Clients/clients.amx" usageId="aeg_cw_mobile_clientsPageDef"/>
     <page path="/aeg.cw.About/about.amx" usageId="aeg_cw_mobile_aboutPageDef"/>
+    <page path="/aeg.cw.Clients/list.amx" usageId="aeg_cw_mobile_listPageDef"/>
+    <page path="/aeg.cw.Clients/details.amx" usageId="aeg_cw_mobile_detailsPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="aeg_cw_mobile_dashboardPageDef" path="aeg.cw.Dashboard.dashboardPageDef"/>
@@ -24,6 +26,8 @@
     <page id="aeg_cw_mobile_contactsPageDef" path="aeg.cw.Contacts.contactsPageDef"/>
     <page id="aeg_cw_mobile_clientsPageDef" path="aeg.cw.Clients.clientsPageDef"/>
     <page id="aeg_cw_mobile_aboutPageDef" path="aeg.cw.About.aboutPageDef"/>
+    <page id="aeg_cw_mobile_listPageDef" path="aeg.cw.Clients.listPageDef"/>
+    <page id="aeg_cw_mobile_detailsPageDef" path="aeg.cw.Clients.detailsPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <dc id="HHSService" path="aeg.cw.mobile.HHSService"/>

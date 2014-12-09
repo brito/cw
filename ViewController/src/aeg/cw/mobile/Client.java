@@ -1,6 +1,7 @@
 package aeg.cw.mobile;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import oracle.adfmf.java.beans.PropertyChangeListener;
@@ -76,6 +77,12 @@ public class Client {
 
     protected void setCases(List<Case> cases) {
         this.cases = cases;
+        for (Case c : cases){
+            c.setClientId(this.clientId);
+            c.setClientFirstName(this.firstName);
+            c.setClientLastName(this.lastName);
+            c.setClientPhoto(this.photo);
+        }
     }
 
     public Case[] getCases() {

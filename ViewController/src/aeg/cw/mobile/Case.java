@@ -7,14 +7,58 @@ import oracle.adfmf.java.beans.PropertyChangeSupport;
 
 public class Case {
     private String type;
+    // TODO http://stackoverflow.com/questions/3859288/how-to-calculate-time-ago-in-java/23215152#23215152
     private Date scheduled;
-    private String clientId;
     private int priority;
+    
+    private String clientId;
+    private String clientLastName;
+    private String clientFirstName;
+    private String clientPhoto;
 
-    public Case(String type, Date scheduled, String clientId, int priority) {
+    public void setClientId(String clientId) {
+        String oldClientId = this.clientId;
+        this.clientId = clientId;
+        propertyChangeSupport.firePropertyChange("clientId", oldClientId, clientId);
+    }
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientLastName(String clientLastName) {
+        String oldClientLastName = this.clientLastName;
+        this.clientLastName = clientLastName;
+        propertyChangeSupport.firePropertyChange("clientLastName", oldClientLastName, clientLastName);
+    }
+
+    public String getClientLastName() {
+        return clientLastName;
+    }
+
+    public void setClientFirstName(String clientFirstName) {
+        String oldClientFirstName = this.clientFirstName;
+        this.clientFirstName = clientFirstName;
+        propertyChangeSupport.firePropertyChange("clientFirstName", oldClientFirstName, clientFirstName);
+    }
+
+    public String getClientFirstName() {
+        return clientFirstName;
+    }
+
+    public void setClientPhoto(String clientPhoto) {
+        String oldClientPhoto = this.clientPhoto;
+        this.clientPhoto = clientPhoto;
+        propertyChangeSupport.firePropertyChange("clientPhoto", oldClientPhoto, clientPhoto);
+    }
+
+    public String getClientPhoto() {
+        return clientPhoto;
+    }
+
+    public Case(String type, Date scheduled, int priority) {
         this.type = type;
         this.scheduled = scheduled;
-        this.clientId = clientId;
         this.priority = priority;
     }
 
@@ -26,16 +70,6 @@ public class Case {
 
     public Date getScheduled() {
         return scheduled;
-    }
-
-    public void setClientId(String clientId) {
-        String oldClientId = this.clientId;
-        this.clientId = clientId;
-        propertyChangeSupport.firePropertyChange("clientId", oldClientId, clientId);
-    }
-
-    public String getClientId() {
-        return clientId;
     }
 
     public void setPriority(int priority) {

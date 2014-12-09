@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<view xmlns="http://xmlns.oracle.com/adf/mf/amx">
+  <panelPage>
+    <facet name="primary">
+      <commandButton action="list" styleClass="fa-list-ol"/>
+    </facet>
+    
+    <panelFormLayout>
+      <panelLabelAndMessage label="#{bindings.photo.hints.label}">
+        <outputText value="#{bindings.photo.inputValue}"/>
+      </panelLabelAndMessage>
+      <panelLabelAndMessage label="#{bindings.firstName.hints.label}">
+        <outputText value="#{bindings.firstName.inputValue}"/>
+      </panelLabelAndMessage>
+      <panelLabelAndMessage label="#{bindings.clientId.hints.label}">
+        <outputText value="#{bindings.clientId.inputValue}"/>
+      </panelLabelAndMessage>
+      <panelLabelAndMessage label="#{bindings.score.hints.label}">
+        <outputText value="#{bindings.score.inputValue}"/>
+      </panelLabelAndMessage>
+      <panelLabelAndMessage label="#{bindings.lastName.hints.label}">
+        <outputText value="#{bindings.lastName.inputValue}"/>
+      </panelLabelAndMessage>
+    </panelFormLayout>
+    
+  </panelPage>
+</view>

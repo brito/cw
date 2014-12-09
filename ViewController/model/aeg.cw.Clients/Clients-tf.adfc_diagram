@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">List</property>
+      <property
+         name="page">/aeg.cw.Clients/list.amx</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>List&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">191.80078</property>
+      <property
+         name="x">209.0</property>
+   </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">Details</property>
+      <property
+         name="page">/aeg.cw.Clients/details.amx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Details&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">191.80078</property>
+      <property
+         name="x">434.0</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="View3">
+      <property
+         name="fromOutcome">details</property>
+      <property
+         name="sdm:polyPoints">R46,250.00163,188.23438,393.0,188.30078,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View3"
+      to="View2">
+      <property
+         name="fromOutcome">list</property>
+      <property
+         name="sdm:polyPoints">L54,392.99838,195.30078,250.0,195.23438,R54</property>
+   </ControlFlowCase>
+</SDM>

@@ -4,10 +4,26 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="HHSService" id="HHSServiceIterator"/>
+    <accessorIterator MasterBinding="HHSServiceIterator" Binds="cases" RangeSize="25" DataControl="HHSService"
+                      BeanClass="aeg.cw.mobile.Case" id="casesIterator"/>
   </executables>
   <bindings>
     <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
                   IsViewObjectMethod="false" DataControl="ApplicationFeatures"
                   InstanceName="data.ApplicationFeatures.dataProvider"/>
+    <tree IterBinding="casesIterator" id="cases">
+      <nodeDefinition DefName="aeg.cw.mobile.Case" Name="cases0">
+        <AttrNames>
+          <Item Value="clientId"/>
+          <Item Value="clientFirstName"/>
+          <Item Value="clientLastName"/>
+          <Item Value="clientPhoto"/>
+          <Item Value="priority"/>
+          <Item Value="scheduled"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

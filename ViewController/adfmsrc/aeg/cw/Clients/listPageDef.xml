@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.40" id="dashboardPageDef"
-                Package="aeg.cw.Dashboard">
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.40" id="listPageDef"
+                Package="aeg.cw.Clients">
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="root" RangeSize="25" DataControl="HHSService" id="HHSServiceIterator"/>
-    <accessorIterator MasterBinding="HHSServiceIterator" Binds="cases" RangeSize="25" DataControl="HHSService"
-                      BeanClass="aeg.cw.mobile.Case" id="casesIterator"/>
     <accessorIterator MasterBinding="HHSServiceIterator" Binds="clients" RangeSize="25" DataControl="HHSService"
                       BeanClass="aeg.cw.mobile.Client" id="clientsIterator"/>
   </executables>
@@ -14,28 +12,14 @@
     <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
                   IsViewObjectMethod="false" DataControl="ApplicationFeatures"
                   InstanceName="data.ApplicationFeatures.dataProvider"/>
-                  
-    <tree IterBinding="casesIterator" id="cases">
-      <nodeDefinition DefName="aeg.cw.mobile.Case" Name="cases0">
-        <AttrNames>
-          <Item Value="type"/>
-          <Item Value="clientId"/>
-          <Item Value="priority"/>
-          <Item Value="scheduled"/>
-          <Item Value="clientFirstName"/>
-          <Item Value="clientLastName"/>
-          <Item Value="clientPhoto"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <tree IterBinding="clientsIterator" id="clients">
       <nodeDefinition DefName="aeg.cw.mobile.Client" Name="clients0">
         <AttrNames>
           <Item Value="lastName"/>
           <Item Value="clientId"/>
+          <Item Value="photo"/>
           <Item Value="firstName"/>
           <Item Value="score"/>
-          <Item Value="photo"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

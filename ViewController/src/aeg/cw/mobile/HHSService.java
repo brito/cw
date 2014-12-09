@@ -27,6 +27,6 @@ public class HHSService {
     }
 
     private void resetCases() {
-        cases.add(new Case("Family Visit", new Date(), "UTAE031943", 0));
+        cases.add(new Case("Family Visit", new Date(), 0));
     }
 }

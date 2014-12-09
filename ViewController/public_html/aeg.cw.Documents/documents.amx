@@ -5,10 +5,8 @@
       <outputText value="Documents"/>
     </facet>
     <facet name="primary">
-      <commandButton/>
+      <commandButton actionListener="#{bindings.gotoSpringboard.execute}" styleClass="fa-bars"/>
     </facet>
-    <facet name="secondary">
-      <commandButton/>
-    </facet>
+    
   </panelPage>
 </view>

@@ -148,15 +148,18 @@
                   </hash>
                </list>
             </hash>
+            <hash n="iosDeploymentOptions">
+               <value n="simulatorTarget" v="iPad 2 (iOS 8.0 - iPad 2)"/>
+            </hash>
             <url n="jarURL" path="deploy/iOS1/iOS1.jar/"/>
             <value n="profileClass" v="oracle.adfmf.framework.dt.deploy.ios.McIosFrameworkProfile"/>
             <value n="profileName" v="iOS1"/>
          </hash>
       </hash>
       <list n="profileList">
+         <string v="Android1"/>
          <string v="ChildWelfare_archive"/>
          <string v="iOS1"/>
-         <string v="Android1"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.PathsConfiguration">
@@ -174,7 +177,9 @@
             </hash>
             <hash/>
          </list>
-         <list n="url-path"/>
+         <list n="url-path">
+            <url path="src/"/>
+         </list>
       </hash>
    </hash>
    <hash n="ResourceBundleOptions">

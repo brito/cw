@@ -2,6 +2,7 @@
 
 /* Font Icons — http://fontawesome.io */
 @import '../css/font-awesome.min.css';
+* { font-family:FontAwesome,HelveticaNeue-Light,Roboto Light }
 
 /* color palette
    https://color.adobe.com/My-Color-Theme-color-theme-4941626/

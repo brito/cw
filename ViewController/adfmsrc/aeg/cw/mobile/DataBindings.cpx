@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.2.40" id="DataBindings"
+             SeparateXMLFiles="false" Package="aeg.cw.mobile" ClientType="Generic">
+  <pageMap>
+    <page path="/aeg.cw.Dashboard/dashboard.amx" usageId="aeg_cw_mobile_dashboardPageDef"/>
+    <page path="/aeg.cw.Reports/reports.amx" usageId="aeg_cw_mobile_reportsPageDef"/>
+    <page path="/aeg.cw.Regulations/regulations.amx" usageId="aeg_cw_mobile_regulationsPageDef"/>
+    <page path="/aeg.cw.MyCases/mycases.amx" usageId="aeg_cw_mobile_mycasesPageDef"/>
+    <page path="/aeg.cw.Help/help.amx" usageId="aeg_cw_mobile_helpPageDef"/>
+    <page path="/aeg.cw.Feedback/feedback.amx" usageId="aeg_cw_mobile_feedbackPageDef"/>
+    <page path="/aeg.cw.Documents/documents.amx" usageId="aeg_cw_mobile_documentsPageDef"/>
+    <page path="/aeg.cw.Contacts/contacts.amx" usageId="aeg_cw_mobile_contactsPageDef"/>
+    <page path="/aeg.cw.Clients/clients.amx" usageId="aeg_cw_mobile_clientsPageDef"/>
+    <page path="/aeg.cw.About/about.amx" usageId="aeg_cw_mobile_aboutPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="aeg_cw_mobile_dashboardPageDef" path="aeg.cw.Dashboard.dashboardPageDef"/>
+    <page id="aeg_cw_mobile_reportsPageDef" path="aeg.cw.Reports.reportsPageDef"/>
+    <page id="aeg_cw_mobile_regulationsPageDef" path="aeg.cw.Regulations.regulationsPageDef"/>
+    <page id="aeg_cw_mobile_mycasesPageDef" path="aeg.cw.MyCases.mycasesPageDef"/>
+    <page id="aeg_cw_mobile_helpPageDef" path="aeg.cw.Help.helpPageDef"/>
+    <page id="aeg_cw_mobile_feedbackPageDef" path="aeg.cw.Feedback.feedbackPageDef"/>
+    <page id="aeg_cw_mobile_documentsPageDef" path="aeg.cw.Documents.documentsPageDef"/>
+    <page id="aeg_cw_mobile_contactsPageDef" path="aeg.cw.Contacts.contactsPageDef"/>
+    <page id="aeg_cw_mobile_clientsPageDef" path="aeg.cw.Clients.clientsPageDef"/>
+    <page id="aeg_cw_mobile_aboutPageDef" path="aeg.cw.About.aboutPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="ApplicationFeatures" path="aeg.cw.application.ApplicationFeatures"/>
+  </dataControlUsages>
+</Application>

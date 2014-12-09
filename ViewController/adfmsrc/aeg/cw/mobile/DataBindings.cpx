@@ -26,6 +26,7 @@
     <page id="aeg_cw_mobile_aboutPageDef" path="aeg.cw.About.aboutPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
+    <dc id="HHSService" path="aeg.cw.mobile.HHSService"/>
     <dc id="ApplicationFeatures" path="aeg.cw.application.ApplicationFeatures"/>
   </dataControlUsages>
 </Application>

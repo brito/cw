@@ -15,6 +15,7 @@
   <adfmf:featureReference refId="aeg.cw.Feedback" id="fr10"/>
   <adfmf:navigation>
     <adfmf:navigationBar enabled="false"/>
-    <adfmf:springboard enabled="true" width="250"/>
+    <adfmf:springboard enabled="true" width="250" displayGotoSpringboardControl="false"
+                       showSpringboardAtStartup="false"/>
   </adfmf:navigation>
 </adfmf:application>

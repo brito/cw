@@ -27,6 +27,9 @@ public class HHSService {
     }
 
     private void resetCases() {
-        cases.add(new Case("Family Visit", new Date(), 0));
+        Case c = new Case("Family Visit", new Date(), 0);
+        // https://www.childwelfare.gov/systemwide/laws_policies/statutes/homestudyreqs.pdf
+        c.addTask("Accessible Help", "Telephone service shall be readily accessible in the home at all times");
+        cases.add(c);
     }
 }

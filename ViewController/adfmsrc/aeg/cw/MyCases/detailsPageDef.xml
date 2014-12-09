@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.2.40" id="detailsPageDef"
+                Package="aeg.cw.MyCases">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="HHSService" id="HHSServiceIterator"/>
+    <accessorIterator MasterBinding="HHSServiceIterator" Binds="cases" RangeSize="25" DataControl="HHSService"
+                      BeanClass="aeg.cw.mobile.Case" id="casesIterator"/>
+    <accessorIterator MasterBinding="casesIterator" Binds="tasks" RangeSize="25" DataControl="HHSService"
+                      BeanClass="aeg.cw.mobile.Case.Task" id="tasksIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="casesIterator" id="clientId">
+      <AttrNames>
+        <Item Value="clientId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="casesIterator" id="clientLastName">
+      <AttrNames>
+        <Item Value="clientLastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="casesIterator" id="clientFirstName">
+      <AttrNames>
+        <Item Value="clientFirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="casesIterator" id="clientPhoto">
+      <AttrNames>
+        <Item Value="clientPhoto"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="casesIterator" id="scheduled">
+      <AttrNames>
+        <Item Value="scheduled"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="casesIterator" id="priority">
+      <AttrNames>
+        <Item Value="priority"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="casesIterator" id="type">
+      <AttrNames>
+        <Item Value="type"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="tasksIterator" id="tasks">
+      <nodeDefinition DefName="aeg.cw.mobile.Case.Task" Name="tasks0">
+        <AttrNames>
+          <Item Value="title"/>
+          <Item Value="description"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

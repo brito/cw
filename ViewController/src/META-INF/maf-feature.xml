@@ -7,7 +7,7 @@
   </adfmf:feature>
   <adfmf:feature id="aeg.cw.MyCases" name="My Cases">
     <adfmf:content id="aeg.cw.MyCases.1">
-      <adfmf:amx file="aeg.cw.MyCases/mycases.amx"/>
+      <adfmf:amx file="aeg.cw.MyCases/Cases-tf.xml#Cases-tf"/>
     </adfmf:content>
   </adfmf:feature>
   <adfmf:feature id="aeg.cw.Clients" name="Clients">

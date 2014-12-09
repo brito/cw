@@ -1,6 +1,9 @@
 package aeg.cw.mobile;
 
+import java.util.ArrayList;
 import java.util.Date;
+
+import java.util.List;
 
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
@@ -15,6 +18,14 @@ public class Case {
     private String clientLastName;
     private String clientFirstName;
     private String clientPhoto;
+    
+    private List<Task> tasks = new ArrayList<Task>();
+
+    public Case(String type, Date scheduled, int priority) {
+        this.type = type;
+        this.scheduled = scheduled;
+        this.priority = priority;
+    }
 
     public void setClientId(String clientId) {
         String oldClientId = this.clientId;
@@ -56,12 +67,6 @@ public class Case {
         return clientPhoto;
     }
 
-    public Case(String type, Date scheduled, int priority) {
-        this.type = type;
-        this.scheduled = scheduled;
-        this.priority = priority;
-    }
-
     public void setScheduled(Date scheduled) {
         Date oldScheduled = this.scheduled;
         this.scheduled = scheduled;
@@ -100,5 +105,53 @@ public class Case {
 
     public void removePropertyChangeListener(PropertyChangeListener l) {
         propertyChangeSupport.removePropertyChangeListener(l);
+    }
+    
+    public Task[] getTasks(){
+        return tasks.toArray(new Task[tasks.size()]);
+    }
+
+    void addTask(String title, String description) {
+        tasks.add(new Task(title, description));
+    }
+
+    protected class Task {
+        private String title;
+        private String description;
+        private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
+
+
+        public Task(String title, String description) {
+            this.title = title;
+            this.description = description;
+        }
+
+        public void setTitle(String title) {
+            String oldTitle = this.title;
+            this.title = title;
+            propertyChangeSupport.firePropertyChange("title", oldTitle, title);
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setDescription(String description) {
+            String oldDescription = this.description;
+            this.description = description;
+            propertyChangeSupport.firePropertyChange("description", oldDescription, description);
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void addPropertyChangeListener(PropertyChangeListener l) {
+            propertyChangeSupport.addPropertyChangeListener(l);
+        }
+
+        public void removePropertyChangeListener(PropertyChangeListener l) {
+            propertyChangeSupport.removePropertyChangeListener(l);
+        }
     }
 }

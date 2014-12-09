@@ -12,7 +12,7 @@
               selectedRowKeys="#{bindings.cases.collectionModel.selectedRow}"
               selectionListener="#{bindings.cases.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
               bufferStrategy="viewport" dividerAttribute="scheduled">
-      <listItem>
+      <listItem action="details">
         <image source="#{row.clientPhoto}"/>
         <outputText value="#{row.clientLastName}"/>
         <outputText value="#{row.clientFirstName}"/>

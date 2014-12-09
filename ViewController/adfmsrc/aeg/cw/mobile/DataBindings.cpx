@@ -5,7 +5,7 @@
     <page path="/aeg.cw.Dashboard/dashboard.amx" usageId="aeg_cw_mobile_dashboardPageDef"/>
     <page path="/aeg.cw.Reports/reports.amx" usageId="aeg_cw_mobile_reportsPageDef"/>
     <page path="/aeg.cw.Regulations/regulations.amx" usageId="aeg_cw_mobile_regulationsPageDef"/>
-    <page path="/aeg.cw.MyCases/mycases.amx" usageId="aeg_cw_mobile_mycasesPageDef"/>
+    <page path="/aeg.cw.MyCases/list.amx" usageId="aeg_cw_mobile_mycasesPageDef"/>
     <page path="/aeg.cw.Help/help.amx" usageId="aeg_cw_mobile_helpPageDef"/>
     <page path="/aeg.cw.Feedback/feedback.amx" usageId="aeg_cw_mobile_feedbackPageDef"/>
     <page path="/aeg.cw.Documents/documents.amx" usageId="aeg_cw_mobile_documentsPageDef"/>
@@ -14,6 +14,7 @@
     <page path="/aeg.cw.About/about.amx" usageId="aeg_cw_mobile_aboutPageDef"/>
     <page path="/aeg.cw.Clients/list.amx" usageId="aeg_cw_mobile_listPageDef"/>
     <page path="/aeg.cw.Clients/details.amx" usageId="aeg_cw_mobile_detailsPageDef"/>
+    <page path="/aeg.cw.MyCases/details.amx" usageId="aeg_cw_mobile_detailsPageDef1"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="aeg_cw_mobile_dashboardPageDef" path="aeg.cw.Dashboard.dashboardPageDef"/>
@@ -28,6 +29,7 @@
     <page id="aeg_cw_mobile_aboutPageDef" path="aeg.cw.About.aboutPageDef"/>
     <page id="aeg_cw_mobile_listPageDef" path="aeg.cw.Clients.listPageDef"/>
     <page id="aeg_cw_mobile_detailsPageDef" path="aeg.cw.Clients.detailsPageDef"/>
+    <page id="aeg_cw_mobile_detailsPageDef1" path="aeg.cw.MyCases.detailsPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <dc id="HHSService" path="aeg.cw.mobile.HHSService"/>

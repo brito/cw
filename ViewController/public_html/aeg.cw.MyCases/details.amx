@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<view xmlns="http://xmlns.oracle.com/adf/mf/amx">
+  <panelPage>
+    <facet name="primary">
+      <commandButton action="list" styleClass="fa-list-ol"/>
+    </facet>
+    
+    <panelFormLayout>
+      <panelLabelAndMessage label="#{bindings.clientId.hints.label}">
+        <outputText value="#{bindings.clientId.inputValue}"/>
+      </panelLabelAndMessage>
+      <panelLabelAndMessage label="#{bindings.clientLastName.hints.label}">
+        <outputText value="#{bindings.clientLastName.inputValue}"/>
+      </panelLabelAndMessage>
+      <panelLabelAndMessage label="#{bindings.clientFirstName.hints.label}">
+        <outputText value="#{bindings.clientFirstName.inputValue}"/>
+      </panelLabelAndMessage>
+      <panelLabelAndMessage label="#{bindings.clientPhoto.hints.label}">
+        <outputText value="#{bindings.clientPhoto.inputValue}"/>
+      </panelLabelAndMessage>
+      <panelLabelAndMessage label="#{bindings.scheduled.hints.label}">
+        <outputText value="#{bindings.scheduled.inputValue}">
+          <convertDateTime pattern="#{bindings.scheduled.format}"/>
+        </outputText>
+      </panelLabelAndMessage>
+      <panelLabelAndMessage label="#{bindings.priority.hints.label}">
+        <outputText value="#{bindings.priority.inputValue}"/>
+      </panelLabelAndMessage>
+      <panelLabelAndMessage label="#{bindings.type.hints.label}">
+        <outputText value="#{bindings.type.inputValue}"/>
+      </panelLabelAndMessage>
+    </panelFormLayout>
+    
+    <iterator var="task" value="#{bindings.tasks.collectionModel}">
+        <outputText value="#{task.title}"/>
+        <outputText value="#{task.description}"/>
+    </iterator>
+    
+  </panelPage>
+</view>

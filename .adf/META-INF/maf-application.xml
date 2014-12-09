@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
+                   version="1.0" name="ChildWelfare" id="com.company.ChildWelfare"
+                   appControllerFolder="ApplicationController"
+                   listener-class="aeg.cw.application.LifeCycleListenerImpl">
+  <adfmf:featureReference refId="aeg.cw.Dashboard" id="fr1"/>
+  <adfmf:featureReference refId="aeg.cw.MyCases" id="fr2"/>
+  <adfmf:featureReference refId="aeg.cw.Clients" id="fr3"/>
+  <adfmf:featureReference refId="aeg.cw.Documents" id="fr4"/>
+  <adfmf:featureReference refId="aeg.cw.Reports" id="fr5"/>
+  <adfmf:featureReference refId="aeg.cw.Regulations" id="fr6"/>
+  <adfmf:featureReference refId="aeg.cw.Contacts" id="fr7"/>
+  <adfmf:featureReference refId="aeg.cw.About" id="fr8"/>
+  <adfmf:featureReference refId="aeg.cw.Help" id="fr9"/>
+  <adfmf:featureReference refId="aeg.cw.Feedback" id="fr10"/>
+</adfmf:application>

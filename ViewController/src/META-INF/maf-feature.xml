@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
+  <adfmf:feature id="aeg.cw.Dashboard" name="Dashboard">
+    <adfmf:content id="aeg.cw.Dashboard.1">
+      <adfmf:amx file="aeg.cw.Dashboard/dashboard.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="aeg.cw.MyCases" name="My Cases">
+    <adfmf:content id="aeg.cw.MyCases.1">
+      <adfmf:amx file="aeg.cw.MyCases/mycases.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="aeg.cw.Clients" name="Clients">
+    <adfmf:content id="aeg.cw.Clients.1">
+      <adfmf:amx file="aeg.cw.Clients/clients.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="aeg.cw.Documents" name="Documents">
+    <adfmf:content id="aeg.cw.Documents.1">
+      <adfmf:amx file="aeg.cw.Documents/documents.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="aeg.cw.Reports" name="Reports">
+    <adfmf:content id="aeg.cw.Reports.1">
+      <adfmf:amx file="aeg.cw.Reports/reports.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="aeg.cw.Regulations" name="Regulations">
+    <adfmf:content id="aeg.cw.Regulations.1">
+      <adfmf:amx file="aeg.cw.Regulations/regulations.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="aeg.cw.Contacts" name="Contacts">
+    <adfmf:content id="aeg.cw.Contacts.1">
+      <adfmf:amx file="aeg.cw.Contacts/contacts.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="aeg.cw.About" name="About">
+    <adfmf:content id="aeg.cw.About.1">
+      <adfmf:amx file="aeg.cw.About/about.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="aeg.cw.Help" name="Help">
+    <adfmf:content id="aeg.cw.Help.1">
+      <adfmf:amx file="aeg.cw.Help/help.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
+  <adfmf:feature id="aeg.cw.Feedback" name="Feedback">
+    <adfmf:content id="aeg.cw.Feedback.1">
+      <adfmf:amx file="aeg.cw.Feedback/feedback.amx"/>
+    </adfmf:content>
+  </adfmf:feature>
+</adfmf:features>

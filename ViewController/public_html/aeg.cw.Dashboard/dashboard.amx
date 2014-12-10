@@ -11,7 +11,7 @@
               selectedRowKeys="#{bindings.cases.collectionModel.selectedRow}"
               selectionListener="#{bindings.cases.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
               bufferStrategy="viewport">
-      <listItem>
+      <listItem action="Cases">
         
         <outputText value="#{row.scheduled}"/>
         <outputText value="#{row.clientId}"/>
@@ -25,7 +25,7 @@
               selectedRowKeys="#{bindings.clients.collectionModel.selectedRow}"
               selectionListener="#{bindings.clients.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
               bufferStrategy="viewport">
-      <listItem>
+      <listItem action="Clients">
         <outputText value="#{row.lastName}"/>
         <outputText value="#{row.firstName}"/>
         <outputText value="#{row.clientId}"/>

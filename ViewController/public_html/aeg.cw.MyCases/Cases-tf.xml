@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="US-ASCII" ?>
 <adfc-mobile-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.0">
   <task-flow-definition id="Cases-tf">
-    <default-activity>List</default-activity>
+    <default-activity>to</default-activity>
+    <input-parameter-definition id="__5">
+      <name>listAction</name>
+      <value></value>
+      <class>String</class>
+    </input-parameter-definition>
     <view id="List">
       <page>/aeg.cw.MyCases/list.amx</page>
     </view>
     <view id="Details">
       <page>/aeg.cw.MyCases/details.amx</page>
     </view>
+    <router id="to">
+      <case id="__9">
+        <expression>#{pageFlowScope.listAction == 'dashboard'}</expression>
+        <outcome>details</outcome>
+      </case>
+      <default-outcome>list</default-outcome>
+    </router>
+    <task-flow-return id="Dashboard">
+      <outcome>
+        <name>Dashboard</name>
+      </outcome>
+    </task-flow-return>
     <control-flow-rule id="__1">
       <from-activity-id>List</from-activity-id>
       <control-flow-case id="__2">
@@ -20,6 +37,21 @@
       <control-flow-case id="__4">
         <from-outcome>list</from-outcome>
         <to-activity-id>List</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__10">
+        <from-outcome>dashboard</from-outcome>
+        <to-activity-id>Dashboard</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>to</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>list</from-outcome>
+        <to-activity-id>List</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>details</from-outcome>
+        <to-activity-id>Details</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <page-flow-scope-behavior>

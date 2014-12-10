@@ -9,9 +9,9 @@
       <property
          name="page">/aeg.cw.MyCases/list.amx</property>
       <property
-         name="start">true</property>
+         name="start">false</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>List&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>List&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
          name="exceptionHandler">false</property>
       <property
@@ -42,7 +42,7 @@
       <property
          name="fromOutcome">details</property>
       <property
-         name="sdm:polyPoints">R46,279.0,148.83594,462.9898,148.30078,L46</property>
+         name="sdm:polyPoints">R42,280.0797,145.33594,463.0,148.30078,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -52,6 +52,66 @@
       <property
          name="fromOutcome">list</property>
       <property
-         name="sdm:polyPoints">L54,463.0,155.30078,279.0102,155.83594,R54</property>
+         name="sdm:polyPoints">L54,462.94327,155.30078,280.02362,152.33594,R50</property>
+   </ControlFlowCase>
+   <Router
+      id="Router7">
+      <property
+         name="activityId">to</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>to&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Router&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">340.8672</property>
+      <property
+         name="x">369.0</property>
+   </Router>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase8"
+      from="Router7"
+      to="View2">
+      <property
+         name="fromOutcome">list</property>
+      <property
+         name="sdm:polyPoints">T44,365.5,286.80078,238.0,206.33594,B50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase9"
+      from="Router7"
+      to="View3">
+      <property
+         name="fromOutcome">details</property>
+      <property
+         name="sdm:polyPoints">T56,372.5,286.80078,504.0,205.80078,B50</property>
+   </ControlFlowCase>
+   <TaskFlowReturn
+      id="TaskFlowReturn10">
+      <property
+         name="activityId">Dashboard</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Dashboard&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  Dashboard&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">332.60156</property>
+      <property
+         name="x">613.0</property>
+   </TaskFlowReturn>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase11"
+      from="View3"
+      to="TaskFlowReturn10">
+      <property
+         name="fromOutcome">dashboard</property>
+      <property
+         name="sdm:polyPoints">B56,507.5,205.80078,613.0,278.60156,T50</property>
    </ControlFlowCase>
 </SDM>

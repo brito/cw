@@ -2,7 +2,7 @@
 <adfmf:features xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf">
   <adfmf:feature id="aeg.cw.Dashboard" name="Dashboard">
     <adfmf:content id="aeg.cw.Dashboard.1">
-      <adfmf:amx file="aeg.cw.Dashboard/dashboard.amx"/>
+      <adfmf:amx file="aeg.cw.Dashboard/Dashboard-tf.xml#Dashboard-tf"/>
     </adfmf:content>
   </adfmf:feature>
   <adfmf:feature id="aeg.cw.MyCases" name="My Cases">

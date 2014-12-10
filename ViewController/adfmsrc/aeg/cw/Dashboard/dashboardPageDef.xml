@@ -7,7 +7,7 @@
     <iterator Binds="root" RangeSize="25" DataControl="HHSService" id="HHSServiceIterator"/>
     <accessorIterator MasterBinding="HHSServiceIterator" Binds="cases" RangeSize="25" DataControl="HHSService"
                       BeanClass="aeg.cw.mobile.Case" id="casesIterator"/>
-    <accessorIterator MasterBinding="HHSServiceIterator" Binds="clients" RangeSize="25" DataControl="HHSService"
+    <accessorIterator MasterBinding="HHSServiceIterator" Binds="clients" RangeSize="1" DataControl="HHSService"
                       BeanClass="aeg.cw.mobile.Client" id="clientsIterator"/>
   </executables>
   <bindings>
@@ -39,5 +39,10 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="clientsIterator" id="score">
+      <AttrNames>
+        <Item Value="score"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

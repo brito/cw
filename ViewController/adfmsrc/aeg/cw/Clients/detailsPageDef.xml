@@ -5,7 +5,7 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="root" RangeSize="25" DataControl="HHSService" id="HHSServiceIterator"/>
-    <accessorIterator MasterBinding="HHSServiceIterator" Binds="clients" RangeSize="25" DataControl="HHSService"
+    <accessorIterator MasterBinding="HHSServiceIterator" Binds="clients" RangeSize="1" DataControl="HHSService"
                       BeanClass="aeg.cw.mobile.Client" id="clientsIterator"/>
   </executables>
   <bindings>
@@ -32,6 +32,11 @@
     <attributeValues IterBinding="clientsIterator" id="lastName">
       <AttrNames>
         <Item Value="lastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="clientsIterator" id="score12">
+      <AttrNames>
+        <Item Value="score"/>
       </AttrNames>
     </attributeValues>
   </bindings>

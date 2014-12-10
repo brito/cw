@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<view xmlns="http://xmlns.oracle.com/adf/mf/amx">
+<view xmlns="http://xmlns.oracle.com/adf/mf/amx" xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
   <panelPage>
     <facet name="primary">
       <commandButton action="dashboard" styleClass="fa-bars"
@@ -10,8 +10,6 @@
     
     <panelFormLayout>
       <panelLabelAndMessage label="#{bindings.photo.hints.label}">
-      
-        <outputText value="#{pageFlowScope.listAction}"/>
         <outputText value="#{bindings.photo.inputValue}"/>
       </panelLabelAndMessage>
       <panelLabelAndMessage label="#{bindings.firstName.hints.label}">
@@ -27,6 +25,22 @@
         <outputText value="#{bindings.lastName.inputValue}"/>
       </panelLabelAndMessage>
     </panelFormLayout>
+    
+    <selectOneButton value="#{pageFlowScope.section or 'summary'}">
+        <selectItem label="Summary" value="summary"/>
+        <selectItem label="Demographics" value="demographics"/>
+        <selectItem label="Family" value="family"/>
+        <selectItem label="Treatment Plan" value="treatment"/>
+        <selectItem label="Case History" value="history"/>
+    </selectOneButton>
+    
+    <deck displayedChild="#{pageFlowScope.section or 'summary'}">
+      <dvtm:statusMeterGauge value="#{bindings.score12.inputValue}" minValue="0" maxValue="100" id="summary">
+        <dvtm:threshold color="#d62800" maxValue="50"/>
+        <dvtm:threshold color="#ffcf21" maxValue="71"/>
+        <dvtm:threshold color="#84ae31"/>
+      </dvtm:statusMeterGauge>
+    </deck>
     
   </panelPage>
 </view>

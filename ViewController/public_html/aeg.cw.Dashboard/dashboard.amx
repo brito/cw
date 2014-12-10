@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<view xmlns="http://xmlns.oracle.com/adf/mf/amx">
+<view xmlns="http://xmlns.oracle.com/adf/mf/amx" xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
   <panelPage>
     <facet name="header"><outputText value="At a Glance"/></facet>
     <facet name="primary">
@@ -14,7 +14,7 @@
       <listItem action="Cases">
         
         <outputText value="#{row.scheduled}"/>
-        <outputText value="#{row.clientId}"/>
+        <outputText value="#{row.clientLastName}, #{row.clientFirstName}"/>
         <outputText value="#{row.type}"/>
         <outputText value="#{row.priority}"/>
       </listItem>
@@ -26,11 +26,18 @@
               selectionListener="#{bindings.clients.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
               bufferStrategy="viewport">
       <listItem action="Clients">
+        <image source="#{row.photo}"/>
         <outputText value="#{row.lastName}"/>
         <outputText value="#{row.firstName}"/>
         <outputText value="#{row.clientId}"/>
-        <outputText value="#{row.score}"/>
-        <image source="#{row.photo}"/>
+        
+        <dvtm:statusMeterGauge value="#{bindings.score.inputValue}" minValue="0" maxValue="100" orientation="circular"
+                               animationOnDisplay="auto">
+          <dvtm:metricLabel rendered="true"/>
+          <dvtm:threshold color="#d62800" maxValue="50"/>
+          <dvtm:threshold color="#e7e700" maxValue="71"/>
+          <dvtm:threshold color="#00ff00"/>
+        </dvtm:statusMeterGauge>
       </listItem>
     </listView>
   </panelPage>

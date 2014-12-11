@@ -5,6 +5,8 @@ import java.util.Date;
 
 import java.util.List;
 
+import java.util.Random;
+
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 
@@ -24,7 +26,9 @@ public class Case {
     public Case(String type, String priority) {
         this.type = type;
         this.priority = priority;
-        this.scheduled = new Date();
+        
+        Random rnd = new Random();
+        this.scheduled = new Date(System.currentTimeMillis() + (rnd.nextInt(48*60)*60*1000));
     }
 
     public void setClientId(String clientId) {

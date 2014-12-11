@@ -12,7 +12,7 @@ public class Case {
     private String type;
     // TODO http://stackoverflow.com/questions/3859288/how-to-calculate-time-ago-in-java/23215152#23215152
     private Date scheduled;
-    private int priority;
+    private String priority;
     
     private String clientId;
     private String clientLastName;
@@ -21,10 +21,10 @@ public class Case {
     
     private List<Task> tasks = new ArrayList<Task>();
 
-    public Case(String type, Date scheduled, int priority) {
+    public Case(String type, String priority) {
         this.type = type;
-        this.scheduled = scheduled;
         this.priority = priority;
+        this.scheduled = new Date();
     }
 
     public void setClientId(String clientId) {
@@ -77,13 +77,13 @@ public class Case {
         return scheduled;
     }
 
-    public void setPriority(int priority) {
-        int oldPriority = this.priority;
+    public void setPriority(String priority) {
+        String oldPriority = this.priority;
         this.priority = priority;
         propertyChangeSupport.firePropertyChange("priority", oldPriority, priority);
     }
 
-    public int getPriority() {
+    public String getPriority() {
         return priority;
     }
 

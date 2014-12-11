@@ -149,7 +149,7 @@
                </list>
             </hash>
             <hash n="iosDeploymentOptions">
-               <value n="simulatorTarget" v="iPad 2 (iOS 8.0 - iPad 2)"/>
+               <value n="simulatorTarget" v="Resizable iPad (iOS 8.1 - Resizable iPad)"/>
             </hash>
             <url n="jarURL" path="deploy/iOS1/iOS1.jar/"/>
             <value n="profileClass" v="oracle.adfmf.framework.dt.deploy.ios.McIosFrameworkProfile"/>

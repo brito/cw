@@ -1,6 +1,7 @@
 package aeg.cw.mobile;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -61,9 +62,19 @@ public class Client {
             c.setClientPhoto(this.photo);
         }
     }
+    protected void addCase(Case c){
+        c.setClientId(this.clientId);
+        c.setClientFirstName(this.firstName);
+        c.setClientLastName(this.lastName);
+        c.setClientPhoto(this.photo);
+        cases.add(c);
+    }
 
     public Case[] getCases() {
-        return cases.toArray(new Case[cases.size()]);
+        Case[] sorted = cases.toArray(new Case[cases.size()]);
+        // by priority
+        Arrays.sort(sorted);
+        return sorted;
     }
 
     public void setMedications(List<Medication> medications) {

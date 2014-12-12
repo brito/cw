@@ -10,25 +10,63 @@ import java.util.Random;
 import oracle.adfmf.java.beans.PropertyChangeListener;
 import oracle.adfmf.java.beans.PropertyChangeSupport;
 
-public class Case {
+public class Case  implements Comparable<Case>{
     private String type;
     // TODO http://stackoverflow.com/questions/3859288/how-to-calculate-time-ago-in-java/23215152#23215152
     private Date scheduled;
-    private String priority;
+    private Priority priority;
     
     private String clientId;
     private String clientLastName;
     private String clientFirstName;
     private String clientPhoto;
     
+    private Status status;
+    private List<String> notes = new ArrayList<String>();
+    
     private List<Task> tasks = new ArrayList<Task>();
-
-    public Case(String type, String priority) {
-        this.type = type;
-        this.priority = priority;
+    
+    public enum Priority {
+        URGENT(0), HIGH(1), NORMAL(2), LOW(3);
+        private final int number;
+        Priority(int number){
+            this.number = number;
+        }
+        private int number() { return number; }
+    }
         
+    public enum Status {
+        OPEN (1), CLOSED (2), PENDING (3);
+        private final int number;
+        Status(int number){
+            this.number = number;
+        }
+        private int number() { return number; }
+    }
+
+    public Case(){
+        this.setPriority(Priority.NORMAL);
         Random rnd = new Random();
         this.scheduled = new Date(System.currentTimeMillis() + (rnd.nextInt(48*60)*60*1000));
+    }
+
+    public void setStatus(Case.Status status) {
+        Case.Status oldStatus = this.status;
+        this.status = status;
+        propertyChangeSupport.firePropertyChange("status", oldStatus, status);
+    }
+
+    public String getStatus() {
+        return status.toString();
+    }
+
+    public void setNote(String note) {
+        this.notes.add(note);
+        propertyChangeSupport.firePropertyChange("notes", notes, note);
+    }
+
+    public String getNote() {
+        return notes.get(0);
     }
 
     public void setClientId(String clientId) {
@@ -81,14 +119,14 @@ public class Case {
         return scheduled;
     }
 
-    public void setPriority(String priority) {
-        String oldPriority = this.priority;
+    public void setPriority(Priority priority) {
+        Priority oldPriority = this.priority;
         this.priority = priority;
         propertyChangeSupport.firePropertyChange("priority", oldPriority, priority);
     }
 
     public String getPriority() {
-        return priority;
+        return priority.toString();
     }
 
     private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
@@ -117,6 +155,11 @@ public class Case {
 
     void addTask(String title, String description) {
         tasks.add(new Task(title, description));
+    }
+
+    @Override
+    public int compareTo(Case c) {
+        return this.priority.number() - c.priority.number();
     }
 
     protected class Task {

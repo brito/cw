@@ -1,46 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <view xmlns="http://xmlns.oracle.com/adf/mf/amx" xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
-  <panelPage>
-    <facet name="primary">
-      <commandButton action="dashboard" styleClass="fa-bars"
-        rendered="#{pageFlowScope.listAction == 'dashboard'}"/>
-      <commandButton action="list" styleClass="fa-list-ol"
-        rendered="#{pageFlowScope.listAction != 'dashboard'}"/>
-    </facet>
-    
-    <panelFormLayout>
-      <panelLabelAndMessage label="#{bindings.photo.hints.label}">
-        <outputText value="#{bindings.photo.inputValue}"/>
-      </panelLabelAndMessage>
-      <panelLabelAndMessage label="#{bindings.firstName.hints.label}">
-        <outputText value="#{bindings.firstName.inputValue}"/>
-      </panelLabelAndMessage>
-      <panelLabelAndMessage label="#{bindings.clientId.hints.label}">
-        <outputText value="#{bindings.clientId.inputValue}"/>
-      </panelLabelAndMessage>
-      <panelLabelAndMessage label="#{bindings.score.hints.label}">
-        <outputText value="#{bindings.score.inputValue}"/>
-      </panelLabelAndMessage>
-      <panelLabelAndMessage label="#{bindings.lastName.hints.label}">
-        <outputText value="#{bindings.lastName.inputValue}"/>
-      </panelLabelAndMessage>
-    </panelFormLayout>
-    
-    <selectOneButton value="#{pageFlowScope.section or 'summary'}">
-        <selectItem label="Summary" value="summary"/>
-        <selectItem label="Demographics" value="demographics"/>
-        <selectItem label="Family" value="family"/>
-        <selectItem label="Treatment Plan" value="treatment"/>
-        <selectItem label="Case History" value="history"/>
-    </selectOneButton>
-    
-    <deck displayedChild="#{pageFlowScope.section or 'summary'}">
-      <dvtm:statusMeterGauge value="#{bindings.score12.inputValue}" minValue="0" maxValue="100" id="summary">
-        <dvtm:threshold color="#d62800" maxValue="50"/>
-        <dvtm:threshold color="#ffcf21" maxValue="71"/>
-        <dvtm:threshold color="#84ae31"/>
-      </dvtm:statusMeterGauge>
-    </deck>
-    
-  </panelPage>
+    <panelPage>
+        <facet name="primary">
+            <commandButton action="dashboard" styleClass="fa-bars"
+                           rendered="#{pageFlowScope.listAction == 'dashboard'}"/>
+            <commandButton action="list" styleClass="fa-list-ol" rendered="#{pageFlowScope.listAction != 'dashboard'}"/>
+        </facet>
+        <panelFormLayout>
+            <panelLabelAndMessage label="#{bindings.photo.hints.label}">
+                <image source="#{bindings.photo.inputValue}"/>
+            </panelLabelAndMessage>
+            <panelLabelAndMessage label="#{bindings.firstName.hints.label}">
+                <outputText value="#{bindings.firstName.inputValue}"/>
+            </panelLabelAndMessage>
+            <panelLabelAndMessage label="#{bindings.clientId.hints.label}">
+                <outputText value="#{bindings.clientId.inputValue}"/>
+            </panelLabelAndMessage>
+            <panelLabelAndMessage label="#{bindings.score.hints.label}">
+                <outputText value="#{bindings.score.inputValue}"/>
+            </panelLabelAndMessage>
+            <panelLabelAndMessage label="#{bindings.lastName.hints.label}">
+                <outputText value="#{bindings.lastName.inputValue}"/>
+            </panelLabelAndMessage>
+        </panelFormLayout>
+        <selectOneButton value="#{pageFlowScope.section or 'summary'}">
+            <selectItem label="Summary" value="summary"/>
+            <selectItem label="Demographics" value="demographics"/>
+            <selectItem label="Family" value="family"/>
+            <selectItem label="Treatment Plan" value="treatment"/>
+            <selectItem label="Case History" value="history"/>
+        </selectOneButton>
+        <deck displayedChild="#{pageFlowScope.section or 'summary'}">
+            <dvtm:statusMeterGauge value="#{bindings.score12.inputValue}" minValue="0" maxValue="100" id="summary">
+                <dvtm:threshold color="#d62800" maxValue="50"/>
+                <dvtm:threshold color="#ffcf21" maxValue="71"/>
+                <dvtm:threshold color="#84ae31"/>
+            </dvtm:statusMeterGauge>
+            <listView var="row" value="#{bindings.cases.collectionModel}" fetchSize="#{bindings.cases.rangeSize}"
+                      selectedRowKeys="#{bindings.cases.collectionModel.selectedRow}" id="history"
+                      selectionListener="#{bindings.cases.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
+                      bufferStrategy="viewport">
+                <listItem styleClass="p-#{row.priority}">
+                    <outputText value="#{row.status}"/>
+                    <outputText value="#{row.scheduled}">
+                        <convertDateTime pattern="M/d/yyyy"/>
+                    </outputText>
+                    <outputText value="#{row.type}"/>
+                    <outputText value="#{row.note}"/>
+                </listItem>
+            </listView>
+        </deck>
+    </panelPage>
 </view>

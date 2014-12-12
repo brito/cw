@@ -1,6 +1,7 @@
 package aeg.cw.mobile;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +13,10 @@ public class HHSService {
         return clients.toArray(new Client[clients.size()]);
     }
     public Case[] getCases(){
-        return cases.toArray(new Case[cases.size()]);
+        Case[] sorted = cases.toArray(new Case[cases.size()]);
+        // by priority
+        Arrays.sort(sorted);
+        return sorted;
     }
     
     public HHSService() {
@@ -44,24 +48,12 @@ public class HHSService {
     }
 
     private void resetCases() {
-        Case c = new Case("Family Visit", "Normal");
-        // https://www.childwelfare.gov/systemwide/laws_policies/statutes/homestudyreqs.pdf
-        c.addTask("Accessible Help", "Telephone service shall be readily accessible in the home at all times");
-        c.addTask("Play Space", "A play space for indoor and outdoor activities will be provided.");
-        c.addTask("Working Utilities","The residence shall have a working telephone, electrical service, gas, comfortably regulated cooling and heating, adequate\n" + 
-        "lighting, and a safe water supply.");
-        c.addTask("Proper Bed","Beds and mattresses shall be of size and quality to allow good sleeping posture");
-        c.addTask("Bedroom Separation per Gender","Separate sleeping rooms shall be provided for children over age 6 who are of the opposite sex.");
-        c.addTask("Sufficient Bedrooms","An adequate number of bedrooms shall be provided for all persons residing in the home.");
-        c.addTask("Clean Bathrooms","Sanitary bathroom facilities that provide privacy shall be available for use by family members and foster children.");
-        c.addTask("Hazard-Free Environment","Nothing that constitutes a hazard is allowed on the property. There shall be appropriate safeguards against potential hazards.");
-        c.addTask("Fire Safety","Smoke detectors, carbon monoxide detectors, and fire extinguishers");
-        cases.add(c);
+        cases.add(new FamilyVisit());
         
-        cases.add(new Case("Relocation", "High"));
-        cases.add(new Case("Safety Assessment", "High"));
-        cases.add(new Case("Home Inspection", "Normal"));
-        cases.add(new Case("Request Medication", "Normal"));
-        cases.add(new Case("Abuse Report", "Urgent"));
+        cases.add(new Relocation());
+        cases.add(new SafetyAssessment());
+        cases.add(new HomeInspection());
+        cases.add(new RequestMedication());
+        cases.add(new AbuseReport());
     }
 }

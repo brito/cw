@@ -33,7 +33,7 @@
                     selectionListener="#{bindings.cases.collectionModel.makeCurrent}">
             <listItem action="Cases">
               <outputText value="#{row.scheduled}">
-                <convertDateTime pattern="k:mm"/>
+                <convertDateTime pattern="h:mm a"/>
               </outputText>
               <outputText value="#{row.clientLastName}, #{row.clientFirstName}"/>
               <outputText value="#{row.type}"/>

@@ -6,7 +6,17 @@
     <variableIterator id="variables"/>
     <iterator Binds="root" RangeSize="25" DataControl="HHSService" id="HHSServiceIterator"/>
     <accessorIterator MasterBinding="HHSServiceIterator" Binds="clients" RangeSize="1" DataControl="HHSService"
-                      BeanClass="aeg.cw.mobile.Client" id="clientsIterator"/>
+                      BeanClass="aeg.cw.mobile.Client" id="clientsIterator">
+      <sortCriteria>
+        <sort attribute="age" ascending="false"/>
+        <sort attribute="firstName" ascending="true"/>
+        <sort attribute="clientId" ascending="false"/>
+        <sort attribute="score" ascending="true"/>
+        <sort attribute="lastName" ascending="true"/>
+      </sortCriteria>
+    </accessorIterator>
+    <accessorIterator MasterBinding="clientsIterator" Binds="cases" RangeSize="25" DataControl="HHSService"
+                      BeanClass="aeg.cw.mobile.Case" id="casesIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="clientsIterator" id="photo">
@@ -39,5 +49,16 @@
         <Item Value="score"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="casesIterator" id="cases">
+      <nodeDefinition DefName="aeg.cw.mobile.Case" Name="cases0">
+        <AttrNames>
+          <Item Value="scheduled"/>
+          <Item Value="note"/>
+          <Item Value="priority"/>
+          <Item Value="status"/>
+          <Item Value="type"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

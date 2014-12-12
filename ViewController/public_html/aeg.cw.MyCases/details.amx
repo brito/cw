@@ -2,9 +2,9 @@
 <view xmlns="http://xmlns.oracle.com/adf/mf/amx">
   <panelPage>
     <facet name="primary">
-      <commandButton action="dashboard" styleClass="fa-bars"
+      <commandButton action="dashboard" styleClass="fa-chevron-left" text="Dashboard"
         rendered="#{pageFlowScope.listAction == 'dashboard'}"/>
-      <commandButton action="list" styleClass="fa-list-ol"
+      <commandButton action="list"  styleClass="fa-chevron-left" text="Clients"
         rendered="#{pageFlowScope.listAction != 'dashboard'}"/>
     </facet>
     

@@ -2,9 +2,10 @@
 <view xmlns="http://xmlns.oracle.com/adf/mf/amx" xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
     <panelPage>
         <facet name="primary">
-            <commandButton action="dashboard" styleClass="fa-bars"
+            <commandButton action="dashboard" styleClass="fa-chevron-left" text="Dashboard"
                            rendered="#{pageFlowScope.listAction == 'dashboard'}"/>
-            <commandButton action="list" styleClass="fa-list-ol" rendered="#{pageFlowScope.listAction != 'dashboard'}"/>
+            <commandButton action="list" styleClass="fa-chevron-left" text="Clients"
+                           rendered="#{pageFlowScope.listAction != 'dashboard'}"/>
         </facet>
         <panelFormLayout>
             <panelLabelAndMessage label="#{bindings.photo.hints.label}">
@@ -36,19 +37,6 @@
                 <dvtm:threshold color="#ffcf21" maxValue="71"/>
                 <dvtm:threshold color="#84ae31"/>
             </dvtm:statusMeterGauge>
-            <listView var="row" value="#{bindings.cases.collectionModel}" fetchSize="#{bindings.cases.rangeSize}"
-                      selectedRowKeys="#{bindings.cases.collectionModel.selectedRow}" id="history"
-                      selectionListener="#{bindings.cases.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
-                      bufferStrategy="viewport">
-                <listItem styleClass="p-#{row.priority}">
-                    <outputText value="#{row.status}"/>
-                    <outputText value="#{row.scheduled}">
-                        <convertDateTime pattern="M/d/yyyy"/>
-                    </outputText>
-                    <outputText value="#{row.type}"/>
-                    <outputText value="#{row.note}"/>
-                </listItem>
-            </listView>
         </deck>
     </panelPage>
 </view>

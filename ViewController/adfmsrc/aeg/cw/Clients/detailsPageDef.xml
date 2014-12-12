@@ -49,16 +49,5 @@
         <Item Value="score"/>
       </AttrNames>
     </attributeValues>
-    <tree IterBinding="casesIterator" id="cases">
-      <nodeDefinition DefName="aeg.cw.mobile.Case" Name="cases0">
-        <AttrNames>
-          <Item Value="scheduled"/>
-          <Item Value="note"/>
-          <Item Value="priority"/>
-          <Item Value="status"/>
-          <Item Value="type"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
   </bindings>
 </pageDefinition>

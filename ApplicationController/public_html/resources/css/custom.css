@@ -13,5 +13,5 @@
 .amx-springboard, .adfmf-panelPage-springboard {
     background-color: hsl(144,60%,40%) }
     
-/* General changes to default layout behavior */
+/* General changes to default layouts */
 .amx-listItem .amx-outputText { display:inline-block }

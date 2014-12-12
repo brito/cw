@@ -1,64 +1,84 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <view xmlns="http://xmlns.oracle.com/adf/mf/amx" xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
-  <panelPage>
-    <facet name="header"><outputText value="At a Glance"/></facet>
-    <facet name="primary">
-      <commandButton actionListener="#{bindings.gotoSpringboard.execute}" styleClass="fa-bars"/>
-    </facet>
-    <tableLayout width="100%">
-      <rowLayout>
-        <cellFormat>
-          <dvtm:pieChart var="row" value="#{bindings.clients.collectionModel}">
-            <facet name="dataStamp">
-              <dvtm:pieDataItem sliceId="#{row.clientId}" value="#{row.score100A}"
-                    label="#{row.firstName}"/>
-            </facet>
-            <dvtm:legend position="bottom"/>
-          </dvtm:pieChart>
-        </cellFormat>
-        <cellFormat>
-          <dvtm:barChart var="row" value="#{bindings.clients.collectionModel}">
-            <facet name="dataStamp">
-              <dvtm:chartDataItem group="#{row.gender}" value="#{row.age}"
-                                  series="#{bindings.clients.hints.age.label}"/>
-            </facet>
-            <dvtm:legend rendered="false"/>
-          </dvtm:barChart>
-        </cellFormat>
-      </rowLayout>
-      <rowLayout>
-        <cellFormat width="50%">
-          <listView var="row" value="#{bindings.cases.collectionModel}" fetchSize="5"
-                    selectedRowKeys="#{bindings.cases.collectionModel.selectedRow}"
-                    selectionListener="#{bindings.cases.collectionModel.makeCurrent}">
-            <listItem action="Cases">
-              <outputText value="#{row.scheduled}">
-                <convertDateTime pattern="h:mm a"/>
-              </outputText>
-              <outputText value="#{row.clientLastName}, #{row.clientFirstName}"/>
-              <outputText value="#{row.type}"/>
-              <outputText value="#{row.priority}"/>
-            </listItem>
-          </listView>
-        </cellFormat>
-        <cellFormat>
-          <listView var="row" value="#{bindings.clients.collectionModel}" fetchSize="5"
-                    selectedRowKeys="#{bindings.clients.collectionModel.selectedRow}"
-                    selectionListener="#{bindings.clients.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
-                    bufferStrategy="viewport">
-            <listItem action="Clients">
-              <image source="#{row.photo}"/>
-              <outputText value="#{row.firstName}"/>
-              <outputText value="#{row.clientId}"/>
-              <dvtm:statusMeterGauge value="#{row.score}" minValue="0" maxValue="100" orientation="circular">
-                <dvtm:threshold color="#d62800" maxValue="59"/>
-                <dvtm:threshold color="#f7f700" maxValue="79"/>
-                <dvtm:threshold color="#00ff00"/>
-              </dvtm:statusMeterGauge>
-            </listItem>
-          </listView>
-        </cellFormat>
-      </rowLayout>
-    </tableLayout>
-  </panelPage>
+    <panelPage>
+        <facet name="header">
+            <outputText value="At a Glance"/>
+        </facet>
+        <facet name="primary">
+            <commandButton actionListener="#{bindings.gotoSpringboard.execute}" styleClass="fa-bars"/>
+        </facet>
+        <tableLayout width="100%">
+            <rowLayout>
+                <cellFormat valign="bottom">
+                    <dvtm:pieChart var="row" value="#{bindings.clients.collectionModel}">
+                        <facet name="dataStamp">
+                            <dvtm:pieDataItem sliceId="#{row.clientId}" value="#{row.score100A}"
+                                              label="#{row.firstName}"/>
+                        </facet>
+                        <dvtm:legend position="bottom"/>
+                    </dvtm:pieChart>
+                </cellFormat>
+                <cellFormat valign="bottom">
+                    <dvtm:barChart var="row" value="#{bindings.clients.collectionModel}">
+                        <facet name="dataStamp">
+                            <dvtm:chartDataItem group="#{row.gender}" value="#{row.age}"
+                                                series="#{bindings.clients.hints.age.label}"/>
+                        </facet>
+                        <dvtm:legend rendered="false"/>
+                    </dvtm:barChart>
+                </cellFormat>
+            </rowLayout>
+            <rowLayout>
+                <cellFormat width="50%" valign="top">
+                    <tableLayout>
+                        <iterator var="row" value="#{bindings.cases.collectionModel}">
+                            <rowLayout>
+                                <cellFormat>
+                                    <outputText value="#{row.scheduled}">
+                                        <convertDateTime pattern="h:mm a"/>
+                                    </outputText>
+                                </cellFormat>
+                                <cellFormat>
+                                    <commandButton text="#{row.clientFirstName}" action="Clients"/>
+                                </cellFormat>
+                                <cellFormat>
+                                    <commandButton text="#{row.type}" action="Cases"/>
+                                </cellFormat>
+                                <cellFormat>
+                                    <outputText value="#{row.priority}"/>
+                                </cellFormat>
+                            </rowLayout>
+                        </iterator>
+                    </tableLayout>
+                </cellFormat>
+                <cellFormat valign="top">
+                    <tableLayout>
+                        <iterator var="row" value="#{bindings.clients.collectionModel}">
+                            <rowLayout>
+                                <cellFormat>
+                                    <image source="#{row.photo}"/>
+                                </cellFormat>
+                                <cellFormat>
+                                    <outputText value="#{row.firstName}"/>
+                                </cellFormat>
+                                <cellFormat>
+                                    <outputText value="#{row.clientId}"/>
+                                </cellFormat>
+                                <cellFormat>
+                                    <dvtm:statusMeterGauge value="#{row.score}" minValue="40" maxValue="100"
+                                                           orientation="circular" plotArea="on"
+                                                           thresholdDisplay="currentOnly" indicatorSize=".2"
+                                                           color="black">
+                                        <dvtm:threshold color="#d62800" maxValue="59"/>
+                                        <dvtm:threshold color="#f7f700" maxValue="79"/>
+                                        <dvtm:threshold color="#00ff00"/>
+                                    </dvtm:statusMeterGauge>
+                                </cellFormat>
+                            </rowLayout>
+                        </iterator>
+                    </tableLayout>
+                </cellFormat>
+            </rowLayout>
+        </tableLayout>
+    </panelPage>
 </view>

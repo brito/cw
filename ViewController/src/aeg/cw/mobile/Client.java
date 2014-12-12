@@ -34,8 +34,7 @@ public class Client {
     private int score100B;
     private int score100C;
 
-    public Client(String lastName, String firstName, int age, String gender) {
-        this.lastName = lastName;
+    public Client(String firstName, int age, String gender) {
         this.firstName = firstName;
         this.age = age;
         this.gender = gender;

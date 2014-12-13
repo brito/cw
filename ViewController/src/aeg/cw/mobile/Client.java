@@ -41,7 +41,7 @@ public class Client {
         this.race = "Hispanic/Latino";
         
         Random rnd = new Random();
-        this.clientId = "UTAE" + (rnd.nextInt(9999) + 999999);
+        this.clientId = "UTAE" + (rnd.nextInt(9999) + rnd.nextInt(9999));
         this.score = rnd.nextInt(60) + 40;
         this.scoreCountA = rnd.nextInt(10);
         this.scoreCountB = rnd.nextInt(50);
@@ -53,13 +53,7 @@ public class Client {
     }
 
     protected void setCases(List<Case> cases) {
-        this.cases = cases;
-        for (Case c : cases){
-            c.setClientId(this.clientId);
-            c.setClientFirstName(this.firstName);
-            c.setClientLastName(this.lastName);
-            c.setClientPhoto(this.photo);
-        }
+        for (Case c : cases){ this.addCase(c); }
     }
     protected void addCase(Case c){
         c.setClientId(this.clientId);
@@ -70,10 +64,7 @@ public class Client {
     }
 
     public Case[] getCases() {
-        Case[] sorted = cases.toArray(new Case[cases.size()]);
-        // by priority
-        Arrays.sort(sorted);
-        return sorted;
+        return cases.toArray(new Case[cases.size()]);
     }
 
     public void setMedications(List<Medication> medications) {

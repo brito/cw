@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 
 import oracle.adfmf.util.Utility;
@@ -17,10 +18,7 @@ public class HHSService {
         return clients.toArray(new Client[clients.size()]);
     }
     public Case[] getCases(){
-        Case[] sorted = cases.toArray(new Case[cases.size()]);
-        // by priority
-        Arrays.sort(sorted);
-        return sorted;
+        return cases.toArray(new Case[cases.size()]);
     }
     
     public HHSService() {
@@ -49,15 +47,35 @@ public class HHSService {
                             "m,16,lase","m,17,garrant"};
         // find more at http://adoptuskids.org
         
+        Random rnd = new Random();
         for (String s : data){
             String[] tokens = s.split(",");
-            String gender = tokens[0] == "f" ? "Female" : "Male";
+            String gender = tokens[0].equalsIgnoreCase("f") ? "Female" : "Male";
             int age = Integer.parseInt(tokens[1]);
             String name = tokens[2];
             
             Client client = new Client(name, age, gender);
-            client.setPhoto("/photos/" + tokens[0] + tokens[1] + tokens[2] + ".jpg");
-            client.setCases(cases);
+            String url = "/photos/" + tokens[0] + tokens[1] + tokens[2] + ".jpg";
+            client.setPhoto(url);
+            
+            log(name +", "+ age +", "+ gender +", "+ url);
+            
+            // assign random cases
+            int n = rnd.nextInt(3);
+            for(int i=0; i < n;i++){
+                Case c = new Case();
+                switch (rnd.nextInt(5)) {
+                case 0: c = new FamilyVisit(); break;
+                case 1: c = new Relocation(); break;
+                case 2: c = new SafetyAssessment(); break;
+                case 3: c = new HomeInspection(); break;
+                case 4: c = new RequestMedication(); break;
+                case 5: c = new AbuseReport(); break;
+                }
+                cases.add(c);
+                client.addCase(c);
+            }
+            
             clients.add(client);
         }
     }

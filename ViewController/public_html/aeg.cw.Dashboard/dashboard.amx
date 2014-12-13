@@ -65,10 +65,8 @@
                                     <outputText value="#{row.clientId}"/>
                                 </cellFormat>
                                 <cellFormat>
-                                    <dvtm:statusMeterGauge value="#{row.score}" minValue="40" maxValue="100"
-                                                           orientation="circular" plotArea="on"
-                                                           thresholdDisplay="currentOnly" indicatorSize=".2"
-                                                           color="black">
+                                    <dvtm:statusMeterGauge value="#{row.score}" minValue="0" maxValue="100"
+                                                           orientation="horizontal">
                                         <dvtm:threshold color="#d62800" maxValue="59"/>
                                         <dvtm:threshold color="#f7f700" maxValue="79"/>
                                         <dvtm:threshold color="#00ff00"/>

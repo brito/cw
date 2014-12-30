@@ -2,6 +2,7 @@ package aeg.cw.mobile;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -17,12 +18,28 @@ public class HHSService {
     public Client[] getClients(){
         return clients.toArray(new Client[clients.size()]);
     }
+    public Client[] getRecent(){
+        int num_results = 5;
+        // This generator returns any 5 cases, randomly
+        int a = new Random().nextInt(clients.size() - num_results);
+        Collections.shuffle(clients);
+        
+        return clients.subList(a, a + num_results).toArray(new Client[clients.size()]);
+    }
+    
     public Case[] getCases(){
         return cases.toArray(new Case[cases.size()]);
     }
+    public Case[] getSchedule(){
+        int num_results = 5;
+        
+        int a = new Random().nextInt(cases.size() - num_results);
+        Collections.shuffle(cases);
+        
+        return cases.subList(a, a + num_results).toArray(new Case[num_results]);
+    }
     
     public HHSService() {
-        resetCases();
         resetClients();
     }
     
@@ -78,14 +95,5 @@ public class HHSService {
             
             clients.add(client);
         }
-    }
-
-    private void resetCases() {
-        cases.add(new FamilyVisit());
-        cases.add(new Relocation());
-        cases.add(new SafetyAssessment());
-        cases.add(new HomeInspection());
-        cases.add(new RequestMedication());
-        cases.add(new AbuseReport());
     }
 }

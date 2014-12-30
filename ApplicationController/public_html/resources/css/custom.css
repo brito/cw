@@ -15,3 +15,8 @@
     
 /* General changes to default layouts */
 .amx-listItem .amx-outputText { display:inline-block }
+
+/* Specific layouts */
+.cw-stats {}
+.cw-today {}
+.cw-recent img { max-height:44px }

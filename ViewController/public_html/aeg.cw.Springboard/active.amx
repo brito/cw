@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<view xmlns="http://xmlns.oracle.com/adf/mf/amx">
+  <panelPage>
+    <facet name="header">
+        <commandLink action="close" styleClass="cw-title">
+            <outputText value="#{bindings.appName.inputValue}"/>
+            <image source="/ChildWelfare.png" shortDesc="Application Icon"/>
+        </commandLink>
+    </facet>
+    
+    <listView styleClass="cw-nav">
+        <listItem action="search" styleClass="fw fa-search" shortDesc="Search" showLinkIcon="false">
+            <inputText simple="true" hintText="Search" autoCapitalize="auto" autoCorrect="auto"
+                 value="#{pageFlowScope.query}"/>
+        </listItem>
+    </listView>
+    
+    <listView styleClass="cw-nav">
+        <listItem shortDesc="Dashboard" styleClass="fw fa-home" action="dashboard" showLinkIcon="false"/>
+        <listItem shortDesc="My Cases" styleClass="fw fa-calendar" action="upcoming" showLinkIcon="false"/>
+        <listItem shortDesc="Clients" styleClass="fw fa-user" action="recent" showLinkIcon="false"/>
+    </listView>
+    
+    <listView styleClass="cw-nav">
+        <listItem shortDesc="Documents" styleClass="fw fa-paperclip" showLinkIcon="false"/>
+        <listItem shortDesc="Reports" styleClass="fw fa-history" showLinkIcon="false"/>
+        <listItem shortDesc="Regulations" styleClass="fw fa-gavel" showLinkIcon="false"/>
+        <listItem shortDesc="Contacts" styleClass="fw fa-user" showLinkIcon="false"/>
+    </listView>
+    
+    <listView styleClass="cw-nav">
+        <listItem shortDesc="About" styleClass="fw fa-gear" showLinkIcon="false"/>
+        <listItem shortDesc="Help" styleClass="fw fa-question" showLinkIcon="false"/>
+        <listItem shortDesc="Feedback" styleClass="fw fa-lightbulb-o" showLinkIcon="false"/>
+    </listView>
+    
+    <listView styleClass="cw-nav">
+        <listItem action="near" styleClass="fw fa-location-arrow" shortDesc="Near" showLinkIcon="false"/>
+        <listItem action="new" styleClass="fw fa-plus-square" shortDesc="New Case" showLinkIcon="false"/>
+    </listView>
+    
+    </panelPage>
+</view>

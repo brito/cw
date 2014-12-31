@@ -19,6 +19,8 @@
     <page path="/aeg.cw.Clients/list.amx" usageId="aeg_cw_mobile_listPageDef"/>
     <page path="/aeg.cw.Clients/details.amx" usageId="aeg_cw_mobile_detailsPageDef"/>
     <page path="/aeg.cw.MyCases/details.amx" usageId="aeg_cw_mobile_detailsPageDef1"/>
+    <page path="/aeg.cw.Springboard/active.amx" usageId="aeg_cw_mobile_activePageDef"/>
+    <page path="/aeg.cw.Map/geo.amx" usageId="aeg_cw_mobile_geoPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="aeg_cw_mobile_dashboardPageDef" path="aeg.cw.Dashboard.dashboardPageDef"/>
@@ -34,6 +36,8 @@
     <page id="aeg_cw_mobile_listPageDef" path="aeg.cw.Clients.listPageDef"/>
     <page id="aeg_cw_mobile_detailsPageDef" path="aeg.cw.Clients.detailsPageDef"/>
     <page id="aeg_cw_mobile_detailsPageDef1" path="aeg.cw.MyCases.detailsPageDef"/>
+    <page id="aeg_cw_mobile_activePageDef" path="aeg.cw.Springboard.activePageDef"/>
+    <page id="aeg_cw_mobile_geoPageDef" path="aeg.cw.Map.geoPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <dc id="HHSService" path="aeg.cw.mobile.HHSService"/>

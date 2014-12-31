@@ -17,6 +17,10 @@
 .amx-listItem .amx-outputText { display:inline-block }
 
 /* Specific layouts */
-.cw-stats {}
-.cw-today {}
+.cw-title img { max-height:2.6em; margin:0 1em; vertical-align:middle }
+
+.cw-nav .amx-listItem { line-height:44px; box-sizing:border-box; padding:0 1em; color:#555 }
+.cw-nav .amx-listItem:after { content:attr(title) }
+.amx-listItem.fa-search * { display:inline-block }
+
 .cw-recent img { max-height:44px }

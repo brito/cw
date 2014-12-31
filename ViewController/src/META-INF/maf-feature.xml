@@ -50,4 +50,9 @@
       <adfmf:amx file="aeg.cw.Feedback/feedback.amx"/>
     </adfmf:content>
   </adfmf:feature>
+  <adfmf:feature id="aeg.cw.Springboard" name="Springboard">
+    <adfmf:content id="aeg.cw.Springboard.1">
+      <adfmf:amx file="aeg.cw.Springboard/springboard-tf.xml#springboard-tf"/>
+    </adfmf:content>
+  </adfmf:feature>
 </adfmf:features>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<view xmlns="http://xmlns.oracle.com/adf/mf/amx">
+  <panelPage>
+    <facet name="header">
+        <commandButton actionListener="#{bindings.gotoSpringboard.execute}" styleClass="fa-bars"/>
+    </facet>
+    
+    <selectOneButton value="#{pageFlowScope.display or 'geo'}">
+        <selectItem label="Geo" value="geo"/>
+        <selectItem label="Stats" value="counties"/>
+    </selectOneButton>
+    
+    <deck displayedChild="#{pageFlowScope.display or 'geo'}">
+        <!--http://andrejusb.blogspot.co.uk/2012/12/adf-mobile-geo-location-and-google-maps.html-->
+        <geographicMap id="geo" styleClass="cw-map"
+            xmlns="http://xmlns.oracle.com/adf/mf/amx/dvt">
+            <pointDataLayer/>
+        </geographicMap>
+        <thematicMap basemap="usa" id="counties" styleClass="cw-map"
+            xmlns="http://xmlns.oracle.com/adf/mf/amx/dvt">
+            <areaLayer layer="counties"/>
+        </thematicMap>
+    </deck>
+  </panelPage>
+</view>

@@ -13,9 +13,12 @@
   <adfmf:featureReference refId="aeg.cw.About" id="fr8"/>
   <adfmf:featureReference refId="aeg.cw.Help" id="fr9"/>
   <adfmf:featureReference refId="aeg.cw.Feedback" id="fr10"/>
+  <adfmf:featureReference refId="aeg.cw.Springboard" id="fr11"/>
   <adfmf:navigation>
     <adfmf:navigationBar enabled="false"/>
     <adfmf:springboard enabled="true" width="250" displayGotoSpringboardControl="false"
-                       showSpringboardAtStartup="false"/>
+                       showSpringboardAtStartup="true">
+      <adfmf:springboardFeatureReference refId="aeg.cw.Springboard" id="sfr1"/>
+    </adfmf:springboard>
   </adfmf:navigation>
 </adfmf:application>

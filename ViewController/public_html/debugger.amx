@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<view xmlns="http://xmlns.oracle.com/adf/mf/amx">
+  <panelPage>
+    <facet name="header">
+      <commandButton action="__back"/>
+    </facet>
+    <outputHtml value="&lt;script>debugger&lt;/script>" security="none"/>
+  </panelPage>
+</view>

@@ -19,7 +19,7 @@
 .cw-title, .cw-title * { vertical-align:middle; line-height:55px }
 .cw-title img { max-height:44px; margin:0 1em; vertical-align:middle }
 
-.cw-nav .amx-listItem::before {font-size: 1.3em }
+.cw-nav .amx-listItem::before { font-size: 1.3em }
 .cw-nav .amx-listItem:after { content:attr(title); padding-left:1em; white-space:nowrap }
 .cw-active .amx-listView { margin-bottom:.6em; padding-bottom:.6em }
 
@@ -27,10 +27,17 @@
 
 /* overrides */
 .amx-panelPage-header, .amx-panelPage-footer { height:56px }
+.amx-panelPage-facet-secondary { left:calc(100vw - 250px) }
+
 .amx-listItem { line-height:2.6em; box-sizing:border-box; padding:0 1em }
 .amx-listItem .amx-outputText { display:inline-block }
 .amx-listItem.fa-search * { display:inline-block }
 .amx-listItem:last-child { border:none }
+
+.amx-filmStrip-item-content { display:-webkit-flex; -webkit-flex-direction:column; 
+	-webkit-justify-content:space-around }
+.amx-filmStrip-item-content { display:flex; flex-direction:column;
+	justify-content:space-around }
 
 /* remove debug warning icon */
 #bodyPage.amx-debug::after { background:none }

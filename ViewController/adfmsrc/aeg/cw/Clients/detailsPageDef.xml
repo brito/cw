@@ -15,8 +15,6 @@
         <sort attribute="lastName" ascending="true"/>
       </sortCriteria>
     </accessorIterator>
-    <accessorIterator MasterBinding="clientsIterator" Binds="cases" RangeSize="25" DataControl="HHSService"
-                      BeanClass="aeg.cw.mobile.Case" id="casesIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="clientsIterator" id="photo">
@@ -44,9 +42,19 @@
         <Item Value="lastName"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="clientsIterator" id="score12">
+    <attributeValues IterBinding="clientsIterator" id="score100A">
       <AttrNames>
-        <Item Value="score"/>
+        <Item Value="score100A"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="clientsIterator" id="score100B">
+      <AttrNames>
+        <Item Value="score100B"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="clientsIterator" id="score100C">
+      <AttrNames>
+        <Item Value="score100C"/>
       </AttrNames>
     </attributeValues>
   </bindings>

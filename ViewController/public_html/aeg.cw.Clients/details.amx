@@ -2,28 +2,22 @@
 <view xmlns="http://xmlns.oracle.com/adf/mf/amx" xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
     <panelPage>
         <facet name="primary">
-            <commandButton action="dashboard" styleClass="fa-chevron-left" text="Dashboard"
+            <commandButton action="dashboard" styleClass="fa-home"
                            rendered="#{pageFlowScope.listAction == 'dashboard'}"/>
-            <commandButton action="list" styleClass="fa-chevron-left" text="Clients"
-                           rendered="#{pageFlowScope.listAction != 'dashboard'}"/>
+            <commandButton action="list" styleClass="fa-user" rendered="#{pageFlowScope.listAction != 'dashboard'}"/>
         </facet>
-        <panelFormLayout>
-            <panelLabelAndMessage label="#{bindings.photo.hints.label}">
+        <filmStrip>
+            <filmStripItem>
                 <image source="#{bindings.photo.inputValue}"/>
-            </panelLabelAndMessage>
-            <panelLabelAndMessage label="#{bindings.firstName.hints.label}">
                 <outputText value="#{bindings.firstName.inputValue}"/>
-            </panelLabelAndMessage>
-            <panelLabelAndMessage label="#{bindings.clientId.hints.label}">
                 <outputText value="#{bindings.clientId.inputValue}"/>
-            </panelLabelAndMessage>
-            <panelLabelAndMessage label="#{bindings.score.hints.label}">
-                <outputText value="#{bindings.score.inputValue}"/>
-            </panelLabelAndMessage>
-            <panelLabelAndMessage label="#{bindings.lastName.hints.label}">
-                <outputText value="#{bindings.lastName.inputValue}"/>
-            </panelLabelAndMessage>
-        </panelFormLayout>
+                <dvtm:statusMeterGauge value="#{bindings.score.inputValue}" minValue="0" maxValue="100">
+                    <dvtm:threshold color="#a1d83f" maxValue="100"/>
+                    <dvtm:threshold color="#f5a623" maxValue="62"/>
+                    <dvtm:threshold color="#a0d73e" maxValue="38"/>
+                </dvtm:statusMeterGauge>
+            </filmStripItem>
+        </filmStrip>
         <selectOneButton value="#{pageFlowScope.section or 'summary'}">
             <selectItem label="Summary" value="summary"/>
             <selectItem label="Demographics" value="demographics"/>
@@ -32,10 +26,26 @@
             <selectItem label="Case History" value="history"/>
         </selectOneButton>
         <deck displayedChild="#{pageFlowScope.section or 'summary'}">
-            <dvtm:statusMeterGauge value="#{bindings.score12.inputValue}" minValue="0" maxValue="100" id="summary">
-                <dvtm:threshold color="#d62800" maxValue="50"/>
-                <dvtm:threshold color="#ffcf21" maxValue="71"/>
-                <dvtm:threshold color="#84ae31"/>
+            <dvtm:statusMeterGauge value="#{bindings.score100A.inputValue}" minValue="0" maxValue="100"
+                                   orientation="circular">
+                <dvtm:metricLabel rendered="true"/>
+                <dvtm:threshold color="#a1d83f" maxValue="100"/>
+                <dvtm:threshold color="#f5a623" maxValue="62"/>
+                <dvtm:threshold color="#a0d73e" maxValue="38"/>
+            </dvtm:statusMeterGauge>
+            <dvtm:statusMeterGauge value="#{bindings.score100B.inputValue}" minValue="0" maxValue="100"
+                                   orientation="circular">
+                <dvtm:metricLabel rendered="true"/>
+                <dvtm:threshold color="#a1d83f" maxValue="100"/>
+                <dvtm:threshold color="#f5a623" maxValue="62"/>
+                <dvtm:threshold color="#a0d73e" maxValue="38"/>
+            </dvtm:statusMeterGauge>
+            <dvtm:statusMeterGauge value="#{bindings.score100C.inputValue}" minValue="0" maxValue="100"
+                                   orientation="circular">
+                <dvtm:metricLabel rendered="true"/>
+                <dvtm:threshold color="#a1d83f" maxValue="100"/>
+                <dvtm:threshold color="#f5a623" maxValue="62"/>
+                <dvtm:threshold color="#a0d73e" maxValue="38"/>
             </dvtm:statusMeterGauge>
         </deck>
     </panelPage>

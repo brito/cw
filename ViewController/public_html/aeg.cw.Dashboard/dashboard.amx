@@ -7,79 +7,29 @@
         <facet name="primary">
             <commandButton actionListener="#{bindings.gotoSpringboard.execute}" styleClass="fa-bars"/>
         </facet>
-        <tableLayout width="100%" styleClass="cw-stats">
-            <rowLayout>
-                <cellFormat valign="bottom">
-                    <!--dvtm:pieChart var="row" value="#{bindings.clients.collectionModel}">
-                        <facet name="dataStamp">
-                            <dvtm:pieDataItem sliceId="#{row.clientId}" value="#{row.score100A}"
-                                              label="#{row.firstName}"/>
-                        </facet>
-                        <dvtm:legend position="bottom"/>
-                    </dvtm:pieChart-->
-                </cellFormat>
-                <cellFormat valign="bottom">
-                    <!--dvtm:barChart var="row" value="#{bindings.clients.collectionModel}">
-                        <facet name="dataStamp">
-                            <dvtm:chartDataItem group="#{row.gender}" value="#{row.age}"
-                                                series="#{bindings.clients.hints.age.label}"/>
-                        </facet>
-                        <dvtm:legend rendered="false"/>
-                    </dvtm:barChart-->
-                </cellFormat>
-            </rowLayout>
-            <rowLayout>
-                <cellFormat width="50%" valign="top">
-                    <tableLayout styleClass="cw-today">
-                        <iterator var="row" value="#{bindings.cases.collectionModel}">
-                            <rowLayout>
-                                <cellFormat>
-                                    <outputText value="#{row.scheduled}">
-                                        <convertDateTime pattern="h:mm a"/>
-                                    </outputText>
-                                </cellFormat>
-                                <cellFormat>
-                                    <commandButton text="#{row.clientFirstName}" action="Clients"/>
-                                </cellFormat>
-                                <cellFormat>
-                                    <commandButton text="#{row.type}" action="Cases"/>
-                                </cellFormat>
-                                <cellFormat>
-                                    <outputText value="#{row.priority}"/>
-                                </cellFormat>
-                            </rowLayout>
-                        </iterator>
-                    </tableLayout>
-                </cellFormat>
-                <cellFormat valign="top">
-                    <tableLayout styleClass="cw-recent">
-                        <iterator var="row" value="#{bindings.clients.collectionModel}">
-                            <rowLayout>
-                                <cellFormat>
-                                    <commandLink action="Clients">
-                                        <image source="#{row.photo}"/>
-                                    </commandLink>
-                                </cellFormat>
-                                <cellFormat>
-                                    <commandButton text="#{row.firstName}" action="Clients"/>
-                                </cellFormat>
-                                <cellFormat>
-                                    <commandButton text="#{row.clientId}" action="Clients"/>
-                                </cellFormat>
-                                <cellFormat>
-                                    <dvtm:statusMeterGauge value="#{row.score}" minValue="0" maxValue="100"
-                                                           orientation="circular"
-                                                           thresholdDisplay="currentOnly">
-                                        <dvtm:threshold color="#d62800" maxValue="59"/>
-                                        <dvtm:threshold color="#f7f700" maxValue="79"/>
-                                        <dvtm:threshold color="#00ff00"/>
-                                    </dvtm:statusMeterGauge>
-                                </cellFormat>
-                            </rowLayout>
-                        </iterator>
-                    </tableLayout>
-                </cellFormat>
-            </rowLayout>
-        </tableLayout>
+        
+        <filmStrip var="row" value="#{bindings.cases.collectionModel}">
+            <filmStripItem>
+                <outputText value="#{row.scheduled}"><convertDateTime pattern="h:mm a"/></outputText>
+                <commandButton text="#{row.clientFirstName}" action="Clients"/>
+                <commandButton text="#{row.type}" action="Cases"/>
+                <outputText value="#{row.priority}"/>
+            </filmStripItem>
+        </filmStrip>
+        
+        <filmStrip var="row" value="#{bindings.clients.collectionModel}">
+            <filmStripItem>
+                <commandLink action="Clients"><image source="#{row.photo}"/></commandLink>
+                <commandButton text="#{row.firstName}" action="Clients"/>
+                <commandButton text="#{row.clientId}" action="Clients"/>
+                <dvtm:ledGauge type="circle" value="#{row.score100A}">
+                    <dvtm:threshold color="#a1d83f" maxValue="100"/>
+                    <dvtm:threshold color="#f5a623" maxValue="62"/>
+                    <dvtm:threshold color="#a0d73e" maxValue="38"/>
+                </dvtm:ledGauge>
+            </filmStripItem>
+        </filmStrip>
+        
+        
     </panelPage>
 </view>

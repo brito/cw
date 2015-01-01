@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <adfmf:application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adfmf="http://xmlns.oracle.com/adf/mf"
-                   version="1.0" name="ChildWelfare" id="com.oraclecorp.internal.ent3.aeg.ChildWelfare"
+                   version="1.0" name="Child Welfare" id="com.oraclecorp.internal.ent3.aeg.ChildWelfare"
                    appControllerFolder="ApplicationController"
                    listener-class="aeg.cw.application.LifeCycleListenerImpl" vendor="Oracle">
   <adfmf:featureReference refId="aeg.cw.Dashboard" id="fr1"/>
@@ -13,7 +13,7 @@
   <adfmf:featureReference refId="aeg.cw.About" id="fr8"/>
   <adfmf:featureReference refId="aeg.cw.Help" id="fr9"/>
   <adfmf:featureReference refId="aeg.cw.Feedback" id="fr10"/>
-  <adfmf:featureReference refId="aeg.cw.Springboard" id="fr11"/>
+  <adfmf:featureReference refId="aeg.cw.Springboard" id="fr11" showOnSpringboard="false" showOnNavigationBar="false"/>
   <adfmf:navigation>
     <adfmf:navigationBar enabled="false"/>
     <adfmf:springboard enabled="true" width="250" displayGotoSpringboardControl="false"

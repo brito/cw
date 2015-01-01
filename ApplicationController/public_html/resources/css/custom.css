@@ -4,23 +4,33 @@
 @import '../css/font-awesome.min.css';
 * { font-family:FontAwesome,HelveticaNeue-Light,Roboto Light }
 
-/* color palette
-   https://color.adobe.com/My-Color-Theme-color-theme-4941626/
-    darker main: #29a259 hsl(144,60%,40%)
-    lighter main: #33ca6f hsl(144,60%,50%)
-    lighter variant: #34c0b8 hsl(177,57%,48%)
-*/
-.amx-springboard, .adfmf-panelPage-springboard {
-    background-color: hsl(144,60%,40%) }
-    
-/* General changes to default layouts */
-.amx-listItem .amx-outputText { display:inline-block }
+/* theme palette: color, tone, shades */
+.cw-active .amx-panelPage-header{ background: #4a90e2 }
+.cw-title .amx-outputText { color:white }
 
-/* Specific layouts */
-.cw-title img { max-height:2.6em; margin:0 1em; vertical-align:middle }
+.cw-nav .amx-listItem::before { color:#bbb }
 
-.cw-nav .amx-listItem { line-height:44px; box-sizing:border-box; padding:0 1em; color:#555 }
-.cw-nav .amx-listItem:after { content:attr(title) }
-.amx-listItem.fa-search * { display:inline-block }
+.amx-listItem { color:#444; background:transparent }
+.cw-active .amx-listView { box-shadow:0 1px rgba(0,0,0,.1) }
+
+/* layout */
+.cw-active .amx-panelPage-facet-header { text-align:right }
+.cw-title .amx-outputText { float:left; padding-left:1em }
+.cw-title, .cw-title * { vertical-align:middle; line-height:55px }
+.cw-title img { max-height:44px; margin:0 1em; vertical-align:middle }
+
+.cw-nav .amx-listItem::before {font-size: 1.3em }
+.cw-nav .amx-listItem:after { content:attr(title); padding-left:1em; white-space:nowrap }
+.cw-active .amx-listView { margin-bottom:.6em; padding-bottom:.6em }
 
 .cw-recent img { max-height:44px }
+
+/* overrides */
+.amx-panelPage-header, .amx-panelPage-footer { height:56px }
+.amx-listItem { line-height:2.6em; box-sizing:border-box; padding:0 1em }
+.amx-listItem .amx-outputText { display:inline-block }
+.amx-listItem.fa-search * { display:inline-block }
+.amx-listItem:last-child { border:none }
+
+/* remove debug warning icon */
+#bodyPage.amx-debug::after { background:none }

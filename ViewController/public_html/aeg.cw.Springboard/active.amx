@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <view xmlns="http://xmlns.oracle.com/adf/mf/amx">
-  <panelPage>
+  <panelPage styleClass="cw-active">
     <facet name="header">
         <commandLink action="close" styleClass="cw-title">
             <outputText value="#{bindings.appName.inputValue}"/>
@@ -9,61 +9,61 @@
     </facet>
         
     <listView styleClass="cw-nav">
-        <listItem styleClass="fw fa-search" shortDesc="Search" showLinkIcon="false"
+        <listItem styleClass="fa-fw fa-search" shortDesc="Search" showLinkIcon="false"
             actionListener="#{bindings.gotoFeature.execute}">
                 <setPropertyListener from="aeg.cw.Dashboard" to="#{pageFlowScope.featureId}"/>
-        </listItem>
+            </listItem>
     </listView>
     
     <!--listView styleClass="cw-nav">
-        <listItem action="near" styleClass="fw fa-location-arrow" shortDesc="Near" showLinkIcon="false"/>
-        <listItem action="new" styleClass="fw fa-plus-square" shortDesc="New Case" showLinkIcon="false"/>
+        <listItem action="near" styleClass="fa-fw fa-location-arrow" shortDesc="Near" showLinkIcon="false"/>
+        <listItem action="new" styleClass="fa-fw fa-plus-square" shortDesc="New Case" showLinkIcon="false"/>
     </listView-->
     
     <listView styleClass="cw-nav">
-        <listItem shortDesc="Dashboard" styleClass="fw fa-home" showLinkIcon="false"
+        <listItem shortDesc="Dashboard" styleClass="fa-fw fa-home" showLinkIcon="false"
             actionListener="#{bindings.gotoFeature.execute}">
                 <setPropertyListener from="aeg.cw.Dashboard" to="#{pageFlowScope.featureId}"/>
         </listItem>
-        <listItem shortDesc="My Cases" styleClass="fw fa-calendar" showLinkIcon="false"
+        <listItem shortDesc="My Cases" styleClass="fa-fw fa-calendar" showLinkIcon="false"
             actionListener="#{bindings.gotoFeature.execute}">
                 <setPropertyListener from="aeg.cw.MyCases" to="#{pageFlowScope.featureId}"/>
         </listItem>
-        <listItem shortDesc="Clients" styleClass="fw fa-user" showLinkIcon="false"
+        <listItem shortDesc="Clients" styleClass="fa-fw fa-user" showLinkIcon="false"
             actionListener="#{bindings.gotoFeature.execute}">
                 <setPropertyListener from="aeg.cw.Clients" to="#{pageFlowScope.featureId}"/>
         </listItem>
     </listView>
     
     <listView styleClass="cw-nav">
-        <listItem shortDesc="Documents" styleClass="fw fa-paperclip" showLinkIcon="false"
+        <listItem shortDesc="Documents" styleClass="fa-fw fa-paperclip" showLinkIcon="false"
             actionListener="#{bindings.gotoFeature.execute}">
                 <setPropertyListener from="aeg.cw.Documents" to="#{pageFlowScope.featureId}"/>
         </listItem>
-        <listItem shortDesc="Reports" styleClass="fw fa-history" showLinkIcon="false"
+        <listItem shortDesc="Reports" styleClass="fa-fw fa-history" showLinkIcon="false"
             actionListener="#{bindings.gotoFeature.execute}">
                 <setPropertyListener from="aeg.cw.Reports" to="#{pageFlowScope.featureId}"/>
         </listItem>
-        <listItem shortDesc="Regulations" styleClass="fw fa-gavel" showLinkIcon="false"
+        <listItem shortDesc="Regulations" styleClass="fa-fw fa-gavel" showLinkIcon="false"
             actionListener="#{bindings.gotoFeature.execute}">
                 <setPropertyListener from="aeg.cw.Regulations" to="#{pageFlowScope.featureId}"/>
         </listItem>
-        <listItem shortDesc="Contacts" styleClass="fw fa-user" showLinkIcon="false"
+        <listItem shortDesc="Contacts" styleClass="fa-fw fa-user" showLinkIcon="false"
             actionListener="#{bindings.gotoFeature.execute}">
                 <setPropertyListener from="aeg.cw.Contacts" to="#{pageFlowScope.featureId}"/>
         </listItem>
     </listView>
     
     <listView styleClass="cw-nav">
-        <listItem shortDesc="About" styleClass="fw fa-gear" showLinkIcon="false"
+        <listItem shortDesc="About" styleClass="fa-fw fa-gear" showLinkIcon="false"
             actionListener="#{bindings.gotoFeature.execute}">
                 <setPropertyListener from="aeg.cw.About" to="#{pageFlowScope.featureId}"/>
         </listItem>
-        <listItem shortDesc="Help" styleClass="fw fa-question" showLinkIcon="false"
+        <listItem shortDesc="Help" styleClass="fa-fw fa-question" showLinkIcon="false"
             actionListener="#{bindings.gotoFeature.execute}">
                 <setPropertyListener from="aeg.cw.Help" to="#{pageFlowScope.featureId}"/>
         </listItem>
-        <listItem shortDesc="Feedback" styleClass="fw fa-lightbulb-o" showLinkIcon="false"
+        <listItem shortDesc="Feedback" styleClass="fa-fw fa-lightbulb-o" showLinkIcon="false"
             actionListener="#{bindings.gotoFeature.execute}">
                 <setPropertyListener from="aeg.cw.Feedback" to="#{pageFlowScope.featureId}"/>
         </listItem>

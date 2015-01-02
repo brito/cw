@@ -18,13 +18,14 @@ public class HHSService {
     public Client[] getClients(){
         return clients.toArray(new Client[clients.size()]);
     }
+
+    // This generator returns 5 cases, randomly
     public Client[] getRecent(){
         int num_results = 5;
-        // This generator returns any 5 cases, randomly
-        int a = new Random().nextInt(clients.size() - num_results);
         Collections.shuffle(clients);
-        
-        return clients.subList(a, a + num_results).toArray(new Client[clients.size()]);
+        int a = new Random().nextInt(clients.size() - num_results);
+        Client[] recent = clients.subList(a, a + num_results).toArray(new Client[num_results]);
+        return recent;
     }
     
     public Case[] getCases(){
@@ -32,11 +33,10 @@ public class HHSService {
     }
     public Case[] getSchedule(){
         int num_results = 5;
-        
-        int a = new Random().nextInt(cases.size() - num_results);
         Collections.shuffle(cases);
-        
-        return cases.subList(a, a + num_results).toArray(new Case[num_results]);
+        int a = new Random().nextInt(cases.size() - num_results);
+        Case[] schedule = cases.subList(a, a + num_results).toArray(new Case[num_results]);
+        return schedule;
     }
     
     public HHSService() {
@@ -74,6 +74,7 @@ public class HHSService {
             Client client = new Client(name, age, gender);
             String url = "/photos/" + tokens[0] + tokens[1] + tokens[2] + ".jpg";
             client.setPhoto(url);
+            clients.add(client);
             
             log(name +", "+ age +", "+ gender +", "+ url);
             
@@ -89,11 +90,10 @@ public class HHSService {
                 case 4: c = new RequestMedication(); break;
                 case 5: c = new AbuseReport(); break;
                 }
-                cases.add(c);
-                client.addCase(c);
+                cases.add(client.addCase(c));
+                
+                log(c.getPriority() + " " + c.getType() + " " + c.getClientFirstName());
             }
-            
-            clients.add(client);
         }
     }
 }

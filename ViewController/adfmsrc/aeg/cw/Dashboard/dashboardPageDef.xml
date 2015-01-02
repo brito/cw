@@ -5,40 +5,34 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="root" RangeSize="25" DataControl="HHSService" id="HHSServiceIterator"/>
-    <accessorIterator MasterBinding="HHSServiceIterator" Binds="cases" RangeSize="-1" DataControl="HHSService"
-                      BeanClass="aeg.cw.mobile.Case" id="casesIterator"/>
-    <accessorIterator MasterBinding="HHSServiceIterator" Binds="clients" RangeSize="-1" DataControl="HHSService"
-                      BeanClass="aeg.cw.mobile.Client" id="clientsIterator"/>
+    <accessorIterator MasterBinding="HHSServiceIterator" Binds="recent" RangeSize="25" DataControl="HHSService"
+                      BeanClass="aeg.cw.mobile.Client" id="recentIterator"/>
+    <accessorIterator MasterBinding="HHSServiceIterator" Binds="schedule" RangeSize="25" DataControl="HHSService"
+                      BeanClass="aeg.cw.mobile.Case" id="scheduleIterator"/>
   </executables>
   <bindings>
     <methodAction id="gotoSpringboard" RequiresUpdateModel="true" Action="invokeMethod" MethodName="gotoSpringboard"
                   IsViewObjectMethod="false" DataControl="ApplicationFeatures"
                   InstanceName="data.ApplicationFeatures.dataProvider"/>
-                  
-    <tree IterBinding="casesIterator" id="cases">
-      <nodeDefinition DefName="aeg.cw.mobile.Case" Name="cases0">
+    <tree IterBinding="recentIterator" id="recent">
+      <nodeDefinition DefName="aeg.cw.mobile.Client" Name="recent0">
         <AttrNames>
-          <Item Value="type"/>
+          <Item Value="firstName"/>
+          <Item Value="photo"/>
           <Item Value="clientId"/>
-          <Item Value="priority"/>
-          <Item Value="scheduled"/>
-          <Item Value="clientFirstName"/>
-          <Item Value="clientLastName"/>
-          <Item Value="clientPhoto"/>
+          <Item Value="score"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <tree IterBinding="clientsIterator" id="clients">
-      <nodeDefinition DefName="aeg.cw.mobile.Client" Name="clients0">
+    <tree IterBinding="scheduleIterator" id="schedule">
+      <nodeDefinition DefName="aeg.cw.mobile.Case" Name="schedule0">
         <AttrNames>
-          <Item Value="firstName"/>
-          <Item Value="score"/>
+          <Item Value="scheduled"/>
+          <Item Value="type"/>
+          <Item Value="priority"/>
+          <Item Value="clientFirstName"/>
           <Item Value="clientId"/>
-          <Item Value="lastName"/>
-          <Item Value="photo"/>
-          <Item Value="score100A"/>
-          <Item Value="gender"/>
-          <Item Value="age"/>
+          <Item Value="clientPhoto"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

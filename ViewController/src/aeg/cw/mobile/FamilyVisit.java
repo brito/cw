@@ -2,7 +2,6 @@ package aeg.cw.mobile;
 
 public class FamilyVisit extends Case {
     public FamilyVisit(){
-        this.setPriority(Priority.NORMAL);
         this.setType("Family Visit");
         
         // https://www.childwelfare.gov/systemwide/laws_policies/statutes/homestudyreqs.pdf

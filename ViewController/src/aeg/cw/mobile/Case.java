@@ -27,7 +27,7 @@ public class Case  implements Comparable<Case>{
     private List<Task> tasks = new ArrayList<Task>();
     
     public enum Priority {
-        URGENT(0), HIGH(1), NORMAL(2), LOW(3);
+        Urgent(0), Important(1), Normal(2), OK(3), FYI(4);
         private final int number;
         Priority(int number){
             this.number = number;
@@ -36,7 +36,7 @@ public class Case  implements Comparable<Case>{
     }
         
     public enum Status {
-        OPEN (1), CLOSED (2), PENDING (3);
+        Delayed(0), Active(1), Assigned(2), Waiting(3), Old(4);
         private final int number;
         Status(int number){
             this.number = number;
@@ -45,9 +45,12 @@ public class Case  implements Comparable<Case>{
     }
 
     public Case(){
-        this.setPriority(Priority.NORMAL);
-        Random rnd = new Random();
-        this.scheduled = new Date(System.currentTimeMillis() + (rnd.nextInt(48*60)*60*1000));
+        this.setPriority(Priority.Normal);
+
+        // randomly scheduled within the next days
+        int days = 3;
+        int soon = (new Random().nextInt(days*24)*60*60*1000);
+        this.scheduled = new Date(System.currentTimeMillis() + soon);
     }
 
     public void setStatus(Case.Status status) {
@@ -126,7 +129,10 @@ public class Case  implements Comparable<Case>{
     }
 
     public String getPriority() {
-        return priority.toString();
+        if (priority.number()  == 2)
+            return "";
+        else
+            return priority.toString();
     }
 
     private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);

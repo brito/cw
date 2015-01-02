@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<view xmlns="http://xmlns.oracle.com/adf/mf/amx" xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt">
+<view xmlns="http://xmlns.oracle.com/adf/mf/amx">
     <panelPage>
         <facet name="header">
             <outputText value="At a Glance"/>
@@ -7,29 +7,48 @@
         <facet name="primary">
             <commandButton actionListener="#{bindings.gotoSpringboard.execute}" styleClass="fa-bars"/>
         </facet>
-        
-        <filmStrip var="row" value="#{bindings.cases.collectionModel}">
-            <filmStripItem>
-                <outputText value="#{row.scheduled}"><convertDateTime pattern="h:mm a"/></outputText>
-                <commandButton text="#{row.clientFirstName}" action="Clients"/>
-                <commandButton text="#{row.type}" action="Cases"/>
-                <outputText value="#{row.priority}"/>
-            </filmStripItem>
-        </filmStrip>
-        
-        <filmStrip var="row" value="#{bindings.clients.collectionModel}">
-            <filmStripItem>
-                <commandLink action="Clients"><image source="#{row.photo}"/></commandLink>
-                <commandButton text="#{row.firstName}" action="Clients"/>
-                <commandButton text="#{row.clientId}" action="Clients"/>
-                <dvtm:ledGauge type="circle" value="#{row.score100A}">
-                    <dvtm:threshold color="#a1d83f" maxValue="100"/>
-                    <dvtm:threshold color="#f5a623" maxValue="62"/>
-                    <dvtm:threshold color="#a0d73e" maxValue="38"/>
-                </dvtm:ledGauge>
-            </filmStripItem>
-        </filmStrip>
-        
-        
+        <panelGroupLayout layout="horizontal" valign="top">
+            <tableLayout styleClass="cw-case">
+                <iterator var="row" value="#{bindings.schedule.collectionModel}">
+                    <rowLayout>
+                        <cellFormat>
+                            <commandLink action="Cases">
+                                <outputText value="#{row.scheduled}">
+                                    <convertDateTime pattern="h:mm a"/>
+                                </outputText>
+                                <outputText value="#{row.type}"/>
+                                <outputText value="#{row.priority}"/>
+                            </commandLink>
+                        </cellFormat>
+                        <cellFormat>
+                            <commandLink action="Clients">
+                                <outputText value="#{row.clientId} #{row.clientFirstName}"/>
+                                <image source="#{row.clientPhoto}" shortDesc="#{row.clientId}"/>
+                            </commandLink>
+                        </cellFormat>
+                    </rowLayout>
+                </iterator>
+            </tableLayout>
+            <tableLayout styleClass="cw-client">
+                <iterator var="row" value="#{bindings.recent.collectionModel}">
+                    <rowLayout>
+                        <cellFormat>
+                            <commandLink action="Clients">
+                                <outputText value="#{row.clientId} #{row.firstName}"/>
+                                <image source="#{row.photo}" shortDesc="#{row.clientId}"/>
+                            </commandLink>
+                        </cellFormat>
+                        <cellFormat>
+                            <dvtm:ledGauge xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt" type="circle"
+                                           value="#{row.score}">
+                                <dvtm:threshold color="#a0d73e" maxValue="60"/>
+                                <dvtm:threshold color="#f5a623" maxValue="70"/>
+                                <dvtm:threshold color="#a1d83f" maxValue="100"/>
+                            </dvtm:ledGauge>
+                        </cellFormat>
+                    </rowLayout>
+                </iterator>
+            </tableLayout>
+        </panelGroupLayout>
     </panelPage>
 </view>

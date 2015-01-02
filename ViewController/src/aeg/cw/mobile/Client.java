@@ -55,12 +55,13 @@ public class Client {
     protected void setCases(List<Case> cases) {
         for (Case c : cases){ this.addCase(c); }
     }
-    protected void addCase(Case c){
+    protected Case addCase(Case c){
         c.setClientId(this.clientId);
         c.setClientFirstName(this.firstName);
         c.setClientLastName(this.lastName);
         c.setClientPhoto(this.photo);
         cases.add(c);
+        return c;
     }
 
     public Case[] getCases() {

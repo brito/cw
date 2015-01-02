@@ -33,6 +33,7 @@
 .amx-listItem .amx-outputText { display:inline-block }
 .amx-listItem.fa-search * { display:inline-block }
 .amx-listItem:last-child { border:none }
+.amx-listItem .amx-image { max-height:5em }
 
 .amx-filmStrip-item-content { display:-webkit-flex; -webkit-flex-direction:column; 
 	-webkit-justify-content:space-around }

@@ -12,24 +12,21 @@
         <listItem styleClass="fa-fw fa-search" shortDesc="Search" showLinkIcon="false"
             actionListener="#{bindings.gotoFeature.execute}">
                 <setPropertyListener from="aeg.cw.Dashboard" to="#{pageFlowScope.featureId}"/>
-            </listItem>
-    </listView>
-    
-    <!--listView styleClass="cw-nav">
+        </listItem>
         <listItem action="near" styleClass="fa-fw fa-location-arrow" shortDesc="Near" showLinkIcon="false"/>
         <listItem action="new" styleClass="fa-fw fa-plus-square" shortDesc="New Case" showLinkIcon="false"/>
-    </listView-->
+    </listView>
     
     <listView styleClass="cw-nav">
-        <listItem shortDesc="Dashboard" styleClass="fa-fw fa-home" showLinkIcon="false"
+        <listItem shortDesc="Dashboard" styleClass="fa-fw fa-th-large" showLinkIcon="false"
             actionListener="#{bindings.gotoFeature.execute}">
                 <setPropertyListener from="aeg.cw.Dashboard" to="#{pageFlowScope.featureId}"/>
         </listItem>
-        <listItem shortDesc="My Cases" styleClass="fa-fw fa-calendar" showLinkIcon="false"
+        <listItem shortDesc="My Cases" styleClass="fa-fw fa-check-square" showLinkIcon="false"
             actionListener="#{bindings.gotoFeature.execute}">
                 <setPropertyListener from="aeg.cw.MyCases" to="#{pageFlowScope.featureId}"/>
         </listItem>
-        <listItem shortDesc="Clients" styleClass="fa-fw fa-user" showLinkIcon="false"
+        <listItem shortDesc="Clients" styleClass="fa-fw fa-child" showLinkIcon="false"
             actionListener="#{bindings.gotoFeature.execute}">
                 <setPropertyListener from="aeg.cw.Clients" to="#{pageFlowScope.featureId}"/>
         </listItem>
@@ -40,7 +37,7 @@
             actionListener="#{bindings.gotoFeature.execute}">
                 <setPropertyListener from="aeg.cw.Documents" to="#{pageFlowScope.featureId}"/>
         </listItem>
-        <listItem shortDesc="Reports" styleClass="fa-fw fa-history" showLinkIcon="false"
+        <listItem shortDesc="Reports" styleClass="fa-fw fa-area-chart" showLinkIcon="false"
             actionListener="#{bindings.gotoFeature.execute}">
                 <setPropertyListener from="aeg.cw.Reports" to="#{pageFlowScope.featureId}"/>
         </listItem>

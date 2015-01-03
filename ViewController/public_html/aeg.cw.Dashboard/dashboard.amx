@@ -1,48 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <view xmlns="http://xmlns.oracle.com/adf/mf/amx">
     <panelPage>
-        <facet name="header">
-            <outputText value="At a Glance"/>
-        </facet>
         <facet name="primary">
             <commandButton actionListener="#{bindings.gotoSpringboard.execute}" styleClass="fa-bars"/>
+            <outputText value="At a Glance"/>
         </facet>
         <panelGroupLayout layout="horizontal" valign="top">
-            <tableLayout styleClass="cw-case">
+            <tableLayout styleClass="fa-calendar" width="100%">
                 <iterator var="row" value="#{bindings.schedule.collectionModel}">
                     <rowLayout>
                         <cellFormat>
-                            <commandLink action="Cases">
+                            <commandLink action="Cases" styleClass="cw-case cw-priority-#{row.priority} cw-type-#{row.type}">
                                 <outputText value="#{row.scheduled}">
                                     <convertDateTime pattern="h:mm a"/>
                                 </outputText>
                                 <outputText value="#{row.type}"/>
-                                <outputText value="#{row.priority}"/>
                             </commandLink>
                         </cellFormat>
                         <cellFormat>
-                            <commandLink action="Clients">
-                                <outputText value="#{row.clientId} #{row.clientFirstName}"/>
+                            <commandLink action="Clients" styleClass="cw-client">
                                 <image source="#{row.clientPhoto}" shortDesc="#{row.clientId}"/>
+                                <outputText value="#{row.clientId}"/>
+                                <outputText value="#{row.clientFirstName}"/>
                             </commandLink>
                         </cellFormat>
                     </rowLayout>
                 </iterator>
             </tableLayout>
-            <tableLayout styleClass="cw-client">
+            <tableLayout styleClass="fa-history" width="100%">
                 <iterator var="row" value="#{bindings.recent.collectionModel}">
                     <rowLayout>
                         <cellFormat>
-                            <commandLink action="Clients">
-                                <outputText value="#{row.clientId} #{row.firstName}"/>
+                            <commandLink action="Clients" styleClass="cw-client">
                                 <image source="#{row.photo}" shortDesc="#{row.clientId}"/>
+                                <outputText value="#{row.clientId}"/>
+                                <outputText value="#{row.firstName}"/>
                             </commandLink>
                         </cellFormat>
-                        <cellFormat>
+                        <cellFormat inlineStyle="width:3em">
                             <dvtm:ledGauge xmlns:dvtm="http://xmlns.oracle.com/adf/mf/amx/dvt" type="circle"
                                            value="#{row.score}">
-                                <dvtm:threshold color="#a0d73e" maxValue="60"/>
-                                <dvtm:threshold color="#f5a623" maxValue="70"/>
+                                <dvtm:threshold color="#a0d73e" maxValue="70"/>
+                                <dvtm:threshold color="#f5a623" maxValue="80"/>
                                 <dvtm:threshold color="#a1d83f" maxValue="100"/>
                             </dvtm:ledGauge>
                         </cellFormat>

@@ -171,14 +171,15 @@ public class Case  implements Comparable<Case>{
     protected class Task {
         private String title;
         private String description;
+        private Status status;
+        private String comments;
         private PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
-
 
         public Task(String title, String description) {
             this.title = title;
             this.description = description;
         }
-
+        
         public void setTitle(String title) {
             String oldTitle = this.title;
             this.title = title;
@@ -197,6 +198,38 @@ public class Case  implements Comparable<Case>{
 
         public String getDescription() {
             return description;
+        }
+
+        public void setComments(String comments) {
+            String oldComments = this.comments;
+            this.comments = comments;
+            propertyChangeSupport.firePropertyChange("comments", oldComments, comments);
+        }
+
+        public String getComments() {
+            return comments;
+        }
+
+        public void setStatus(String status) {
+            Case.Status oldStatus = this.status;
+            this.status = Case.Status.Active;
+            // When switching to Active, trigger a state inquiry on this object, fire listeners
+            propertyChangeSupport.firePropertyChange("status", oldStatus, status);
+        }
+
+        public String getStatus() {
+            return status.toString();
+        }
+
+        public void setPropertyChangeSupport(PropertyChangeSupport propertyChangeSupport) {
+            PropertyChangeSupport oldPropertyChangeSupport = this.propertyChangeSupport;
+            this.propertyChangeSupport = propertyChangeSupport;
+            propertyChangeSupport.firePropertyChange("propertyChangeSupport", oldPropertyChangeSupport,
+                                                     propertyChangeSupport);
+        }
+
+        public PropertyChangeSupport getPropertyChangeSupport() {
+            return propertyChangeSupport;
         }
 
         public void addPropertyChangeListener(PropertyChangeListener l) {

@@ -51,6 +51,7 @@
         <AttrNames>
           <Item Value="title"/>
           <Item Value="description"/>
+          <Item Value="comments"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

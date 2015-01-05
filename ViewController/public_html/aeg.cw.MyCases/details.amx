@@ -1,43 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <view xmlns="http://xmlns.oracle.com/adf/mf/amx">
-  <panelPage>
-    <facet name="primary">
-      <commandButton action="dashboard" styleClass="fa-chevron-left" text="Dashboard"
-        rendered="#{pageFlowScope.listAction == 'dashboard'}"/>
-      <commandButton action="list"  styleClass="fa-chevron-left" text="Clients"
-        rendered="#{pageFlowScope.listAction != 'dashboard'}"/>
-    </facet>
-    
-    <panelFormLayout>
-      <panelLabelAndMessage label="#{bindings.clientId.hints.label}">
-        <outputText value="#{bindings.clientId.inputValue}"/>
-      </panelLabelAndMessage>
-      <panelLabelAndMessage label="#{bindings.clientLastName.hints.label}">
-        <outputText value="#{bindings.clientLastName.inputValue}"/>
-      </panelLabelAndMessage>
-      <panelLabelAndMessage label="#{bindings.clientFirstName.hints.label}">
-        <outputText value="#{bindings.clientFirstName.inputValue}"/>
-      </panelLabelAndMessage>
-      <panelLabelAndMessage label="#{bindings.clientPhoto.hints.label}">
-        <outputText value="#{bindings.clientPhoto.inputValue}"/>
-      </panelLabelAndMessage>
-      <panelLabelAndMessage label="#{bindings.scheduled.hints.label}">
-        <outputText value="#{bindings.scheduled.inputValue}">
-          <convertDateTime pattern="#{bindings.scheduled.format}"/>
-        </outputText>
-      </panelLabelAndMessage>
-      <panelLabelAndMessage label="#{bindings.priority.hints.label}">
-        <outputText value="#{bindings.priority.inputValue}"/>
-      </panelLabelAndMessage>
-      <panelLabelAndMessage label="#{bindings.type.hints.label}">
-        <outputText value="#{bindings.type.inputValue}"/>
-      </panelLabelAndMessage>
-    </panelFormLayout>
-    
-    <iterator var="task" value="#{bindings.tasks.collectionModel}">
-        <outputText value="#{task.title}"/>
-        <outputText value="#{task.description}"/>
-    </iterator>
-    
-  </panelPage>
+    <panelPage>
+        <facet name="primary">
+            <commandButton action="dashboard" styleClass="fa-th-large"
+                           rendered="#{pageFlowScope.listAction == 'dashboard'}"/>
+            <commandButton action="list" styleClass="fa-child" rendered="#{pageFlowScope.listAction != 'dashboard'}"/>
+        </facet>
+        <listView>
+            <listItem styleClass="cw-priority-#{bindings.priority.inputValue}">
+                <tableLayout>
+                    <rowLayout>
+                        <cellFormat>
+                            <outputText value="#{bindings.type.inputValue}"/>
+                        </cellFormat>
+                        <cellFormat>
+                            <commandLink>
+                                <image source="#{bindings.clientPhoto.inputValue}"
+                                       shortDesc="#{bindings.clientFirstName.hints.label}"/>
+                                <outputText value="#{bindings.clientFirstName.inputValue}"/>
+                            </commandLink>
+                        </cellFormat>
+                        <cellFormat>
+                            <outputText value="#{bindings.scheduled.inputValue}">
+                                <convertDateTime pattern="#{bindings.scheduled.format}"/>
+                            </outputText>
+                        </cellFormat>
+                    </rowLayout>
+                </tableLayout>
+            </listItem>
+        </listView>
+        <selectOneButton value="#{pageFlowScope.section or 'general'}">
+            <selectItem label="General" value="general"/>
+            <selectItem label="Remediation" value="remediation"/>
+            <selectItem label="Confirmation" value="confirmation"/>
+        </selectOneButton>
+        <deck displayedChild="#{pageFlowScope.section or 'general'}">
+            <panelFormLayout id="general" labelPosition="topStart" fieldHalign="start" maxColumns="2"
+                             showHorizontalDividers="false" fieldWidth="100%" labelWidth="100%">
+                <iterator var="task" value="#{bindings.tasks.collectionModel}">
+                    <selectBooleanCheckbox label="#{task.title}" simple="true"/>
+                    <inputText id="inProgress" rows="5" label="#{task.description}"
+                               value="#{task.comments}" 
+                               hintText="Please provide comments"/>
+                </iterator>
+            </panelFormLayout>
+        </deck>
+    </panelPage>
 </view>

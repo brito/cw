@@ -4,17 +4,12 @@ public class FamilyVisit extends Case {
     public FamilyVisit(){
         this.setType("Family Visit");
         
-        // https://www.childwelfare.gov/systemwide/laws_policies/statutes/homestudyreqs.pdf
-        this.addTask("Accessible Help", "Telephone service shall be readily accessible in the home at all times");
-        this.addTask("Play Space", "A play space for indoor and outdoor activities will be provided.");
-        this.addTask("Working Utilities","The residence shall have a working telephone, electrical service, gas, comfortably regulated cooling and heating, adequate\n" + 
-        "lighting, and a safe water supply.");
-        this.addTask("Proper Bed","Beds and mattresses shall be of size and quality to allow good sleeping posture");
-        this.addTask("Bedroom Separation per Gender","Separate sleeping rooms shall be provided for children over age 6 who are of the opposite sex.");
-        this.addTask("Sufficient Bedrooms","An adequate number of bedrooms shall be provided for all persons residing in the home.");
-        this.addTask("Clean Bathrooms","Sanitary bathroom facilities that provide privacy shall be available for use by family members and foster children.");
-        this.addTask("Hazard-Free Environment","Nothing that constitutes a hazard is allowed on the property. There shall be appropriate safeguards against potential hazards.");
-        this.addTask("Fire Safety","Smoke detectors, carbon monoxide detectors, and fire extinguishers");
+        this.addTask("Monthly Visit", "The following may be addressed, as age appropriate, with the child(ren) at least monthly during the worker visit.");
+        this.addTask("Safety Assessment","Discuss the child's feelings of safety in the placement and note any safety concerns. Assess the child's risk in the placement. Note concerns about any household members' behaviors/interactions based on worker observation or as discussed with the provider. Observed safety concerns should be immediately discussed with the provider and then discussed with the supervisor and licensing worker.");
+        this.addTask("Wellbeing","Assess if the child has any feelings of guilt or blame for events which occurred or caused separation from family. Discuss with the child as needed and appropriate.");
+        this.addTask("Adjustment","Discuss child's adjustment to current placement as well as interactions with other family members. Note changes in household composition or structure.");
+        this.addTask("Issues","Discuss child's loss and grief issues.");
+        this.addTask("Performance","Discuss child's adjustment and performance at school or daycare if applicable.");
         
     }
 }

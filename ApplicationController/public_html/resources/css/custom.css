@@ -42,6 +42,7 @@ html[dir=ltr] .amx-panelPage-facet-primary .amx-outputText { line-height:55px }
 
 .amx-rowLayout * { vertical-align:middle; line-height:3em; margin:0 .3em; text-decoration:none }
 .amx-rowLayout td { white-space:nowrap }
+.amx-commandLink .amx-outputText { text-transform:capitalize }
 .amx-commandLink .amx-outputText:first-of-type { display:inline-block; text-align:right; width:7em }
 .amx-rowLayout .amx-image { max-height:3em; float:right; border-radius:1em; margin-left:1em }
 

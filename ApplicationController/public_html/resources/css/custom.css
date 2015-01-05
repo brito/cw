@@ -11,16 +11,17 @@
 .cw-nav .amx-listItem::before { color:#bbb }
 
 .amx-listItem { color:#444; background:transparent }
-.cw-active .amx-listView { box-shadow:0 1px rgba(0,0,0,.1) }
+.cw-active .amx-listView { box-shadow:0 1px rgba(0,0,0,.1); background:transparent }
 
 /* layout */
+.cw-active .amx-panelPage-contentWrapper { box-shadow:-3px 0 3px rgba(0,0,0,.3) inset  }
 .cw-active .amx-panelPage-facet-header { text-align:right }
-.cw-title .amx-outputText { float:left; padding-left:1em }
+.cw-title .amx-outputText { float:left }
 .cw-title, .cw-title * { vertical-align:middle; line-height:55px }
 .cw-title img { max-height:44px; margin:0 1em; vertical-align:middle }
 
-:before { font-size: 1.3em }
-.cw-nav .amx-listItem:after { content:attr(title); padding-left:1em; white-space:nowrap }
+:before { font-size:1.3em; width:1.3em; display:inline-block; text-align:center }
+.cw-nav .amx-listItem:after { content: attr(title); padding-left:.4em; white-space:nowrap }
 .cw-active .amx-listView { margin-bottom:.6em; padding-bottom:.6em }
 
 .cw-recent img { max-height:44px }
@@ -28,8 +29,13 @@
 /* overrides */
 .amx-panelPage-header, .amx-panelPage-footer { height:56px }
 .amx-panelPage-facet-secondary { left:calc(100vw - 250px) }
+html[dir=ltr] .amx-panelPage-facet-primary > * { clear:none }
+html[dir=ltr] .amx-panelPage-facet-primary .amx-outputText { line-height:55px }
+.amx-panelPage-facet-primary .amx-commandButton, 
+.amx-panelPage-facet-secondary .amx-commandButton, 
+.amx-panelPage-facet-footer .amx-commandButton { line-height:50px; padding: 0; margin:0; width: 50px }
 
-.amx-listItem { line-height:2.6em; box-sizing:border-box; padding:0 1em }
+.amx-listItem { line-height:2.6em; box-sizing:border-box; padding: 0 1em }
 .amx-listItem .amx-outputText { display:inline-block }
 .amx-listItem.fa-search * { display:inline-block }
 .amx-listItem:last-child { border:none }

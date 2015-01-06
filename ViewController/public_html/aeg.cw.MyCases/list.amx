@@ -11,14 +11,15 @@
     <listView var="row" value="#{bindings.cases.collectionModel}" fetchSize="#{bindings.cases.rangeSize}"
               selectedRowKeys="#{bindings.cases.collectionModel.selectedRow}"
               selectionListener="#{bindings.cases.collectionModel.makeCurrent}" showMoreStrategy="autoScroll"
-              bufferStrategy="viewport" dividerAttribute="scheduled">
+              bufferStrategy="viewport" dividerAttribute="priority">
       <listItem action="details">
+        <outputText value="#{row.scheduled}">
+          <convertDateTime pattern="h:mm a"/>
+        </outputText>
+        <outputText value="#{row.type}"/>
         <image source="#{row.clientPhoto}"/>
-        <outputText value="#{row.clientLastName}"/>
         <outputText value="#{row.clientFirstName}"/>
         <outputText value="#{row.clientId}"/>
-        <outputText value="#{row.type}"/>
-        <outputText value="#{row.priority}"/>
       </listItem>
     </listView>
     

@@ -26,7 +26,17 @@
 
 .cw-recent img { max-height:44px }
 
+/* A nice interaction animation for all case task lists */
+.amx-selectBooleanCheckbox + .amx-inputText .wrap,
+.on.amx-selectBooleanCheckbox + .amx-inputText .field-label { max-height:8em;  transition:max-height 250ms }
+.on.amx-selectBooleanCheckbox + .amx-inputText .wrap:not(.amx-wrap-active) { max-height:1.6em }
+.on.amx-selectBooleanCheckbox + .amx-inputText .field-label { max-height:0 }
+.on.amx-selectBooleanCheckbox + .amx-inputText ::-webkit-input-placeholder { color:transparent }
+
 /* overrides */
+.amx-image { border-radius:1em; margin:0 .6ex }
+.amx-commandLink * { max-height:2em; line-height:1.6em; vertical-align:middle }
+
 .amx-panelPage-header, .amx-panelPage-footer { height:56px }
 .amx-panelPage-facet-secondary { left:calc(100vw - 250px) }
 html[dir=ltr] .amx-panelPage-facet-primary > * { clear:none }
@@ -43,8 +53,8 @@ html[dir=ltr] .amx-panelPage-facet-primary .amx-outputText { line-height:55px }
 .amx-rowLayout * { vertical-align:middle; line-height:3em; margin:0 .3em; text-decoration:none }
 .amx-rowLayout td { white-space:nowrap }
 .amx-commandLink .amx-outputText { text-transform:capitalize }
-.amx-commandLink .amx-outputText:first-of-type { display:inline-block; text-align:right; width:7em }
-.amx-rowLayout .amx-image { max-height:3em; float:right; border-radius:1em; margin-left:1em }
+.amx-rowLayout .amx-image { max-height:3em; float:right; margin-left:1em }
+
 
 .amx-filmStrip-item-content { display:-webkit-flex; -webkit-flex-direction:column; 
 	-webkit-justify-content:space-around }

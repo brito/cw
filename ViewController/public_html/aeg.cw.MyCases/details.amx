@@ -2,31 +2,22 @@
 <view xmlns="http://xmlns.oracle.com/adf/mf/amx">
     <panelPage>
         <facet name="primary">
-            <commandButton action="dashboard" styleClass="fa-th-large"
+            <commandLink action="list" rendered="#{pageFlowScope.listAction != 'dashboard'}">
+                <image source="#{bindings.clientPhoto.inputValue}" shortDesc="#{bindings.clientFirstName.inputValue}"/>
+                <outputText value="#{bindings.clientFirstName.inputValue}"/>
+            </commandLink>
+            <commandButton action="dashboard" styleClass="fa-th-large" text="#{bindings.clientFirstName.inputValue}"
                            rendered="#{pageFlowScope.listAction == 'dashboard'}"/>
-            <commandButton action="list" styleClass="fa-child" rendered="#{pageFlowScope.listAction != 'dashboard'}"/>
+        </facet>
+        <facet name="header">
+            <outputText value="#{bindings.type.inputValue}"/>
         </facet>
         <listView>
-            <listItem styleClass="cw-priority-#{bindings.priority.inputValue}">
-                <tableLayout>
-                    <rowLayout>
-                        <cellFormat>
-                            <outputText value="#{bindings.type.inputValue}"/>
-                        </cellFormat>
-                        <cellFormat>
-                            <commandLink>
-                                <image source="#{bindings.clientPhoto.inputValue}"
-                                       shortDesc="#{bindings.clientFirstName.hints.label}"/>
-                                <outputText value="#{bindings.clientFirstName.inputValue}"/>
-                            </commandLink>
-                        </cellFormat>
-                        <cellFormat>
-                            <outputText value="#{bindings.scheduled.inputValue}">
-                                <convertDateTime pattern="#{bindings.scheduled.format}"/>
-                            </outputText>
-                        </cellFormat>
-                    </rowLayout>
-                </tableLayout>
+            <listItem styleClass="cw-priority-#{bindings.priority.inputValue}" showLinkIcon="false"
+                      shortDesc="#{bindings.scheduled.inputValue}">
+                <outputText value="#{bindings.scheduled.inputValue}">
+                    <convertDateTime pattern="h:mm a EEEE d, MMMM yyyy z"/>
+                </outputText>
             </listItem>
         </listView>
         <selectOneButton value="#{pageFlowScope.section or 'general'}">
@@ -36,11 +27,10 @@
         </selectOneButton>
         <deck displayedChild="#{pageFlowScope.section or 'general'}">
             <panelFormLayout id="general" labelPosition="topStart" fieldHalign="start" maxColumns="2"
-                             showHorizontalDividers="false" fieldWidth="100%" labelWidth="100%">
+                             showHorizontalDividers="false">
                 <iterator var="task" value="#{bindings.tasks.collectionModel}">
-                    <selectBooleanCheckbox label="#{task.title}" simple="true"/>
-                    <inputText id="inProgress" rows="5" label="#{task.description}"
-                               value="#{task.comments}" 
+                    <selectBooleanCheckbox value="false" text="#{task.title}"/>
+                    <inputText rows="5" label="#{task.description}" value="#{task.comments}"
                                hintText="Please provide comments"/>
                 </iterator>
             </panelFormLayout>

@@ -28,7 +28,7 @@
 
 /* A nice interaction animation for all case task lists */
 .amx-selectBooleanCheckbox + .amx-inputText .wrap,
-.on.amx-selectBooleanCheckbox + .amx-inputText .field-label { max-height:8em;  transition:max-height 250ms }
+.on.amx-selectBooleanCheckbox + .amx-inputText .field-label { max-height:8em; transition:max-height 250ms }
 .on.amx-selectBooleanCheckbox + .amx-inputText .wrap:not(.amx-wrap-active) { max-height:1.6em }
 .on.amx-selectBooleanCheckbox + .amx-inputText .field-label { max-height:0 }
 .on.amx-selectBooleanCheckbox + .amx-inputText ::-webkit-input-placeholder { color:transparent }
@@ -36,6 +36,9 @@
 /* overrides */
 .amx-image { border-radius:1em; margin:0 .6ex }
 .amx-commandLink * { max-height:2em; line-height:1.6em; vertical-align:middle }
+.amx-panelPage-facet-primary > .amx-commandLink label, 
+.amx-panelPage-facet-secondary > .amx-commandLink label, 
+.amx-panelPage-facet-footer > .amx-commandLink label { padding:0; text-decoration:none }
 
 .amx-panelPage-header, .amx-panelPage-footer { height:56px }
 .amx-panelPage-facet-secondary { left:calc(100vw - 250px) }

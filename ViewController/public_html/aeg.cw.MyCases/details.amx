@@ -1,25 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <view xmlns="http://xmlns.oracle.com/adf/mf/amx">
-    <panelPage>
+    <panelPage styleClass="cw-priority-#{bindings.priority.inputValue}">
         <facet name="primary">
-            <commandLink action="list" rendered="#{pageFlowScope.listAction != 'dashboard'}">
-                <image source="#{bindings.clientPhoto.inputValue}" shortDesc="#{bindings.clientFirstName.inputValue}"/>
-                <outputText value="#{bindings.clientFirstName.inputValue}"/>
-            </commandLink>
-            <commandButton action="dashboard" styleClass="fa-th-large" text="#{bindings.clientFirstName.inputValue}"
+            <commandLink action="list" styleClass="fa-check-square" text="My Cases"
+                         rendered="#{pageFlowScope.listAction != 'dashboard'}"/>
+            <commandLink action="dashboard" styleClass="fa-th-large" text="Dashboard"
                            rendered="#{pageFlowScope.listAction == 'dashboard'}"/>
         </facet>
         <facet name="header">
             <outputText value="#{bindings.type.inputValue}"/>
         </facet>
-        <listView>
-            <listItem styleClass="cw-priority-#{bindings.priority.inputValue}" showLinkIcon="false"
-                      shortDesc="#{bindings.scheduled.inputValue}">
-                <outputText value="#{bindings.scheduled.inputValue}">
-                    <convertDateTime pattern="h:mm a EEEE d, MMMM yyyy z"/>
-                </outputText>
-            </listItem>
-        </listView>
+        <panelFormLayout labelPosition="topCenter" fieldHalign="center" maxColumns="2" showHorizontalDividers="false"
+                         labelWidth="380" fieldWidth="380">
+            <panelLabelAndMessage label="#{bindings.clientFirstName.inputValue}">
+                <image source="#{bindings.clientPhoto.inputValue}" shortDesc="#{bindings.clientFirstName.inputValue}"/>
+            </panelLabelAndMessage>
+            <inputDate inputType="datetime" label="Scheduled" value="#{bindings.scheduled.inputValue}"/>
+        </panelFormLayout>
+        <!--1. add location to case details (defaults to client location)
+            http://andrejusb.blogspot.co.uk/2012/12/adf-mobile-geo-location-and-google-maps.html 
+            geographicMap xmlns="http://xmlns.oracle.com/adf/mf/amx/dvt"
+            mapType="ROADMAP">
+          <pointDataLayer selectedRowKeys="#{bindings.placements.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.placements.collectionModel.makeCurrent}" dataSelection="single"
+                          value="#{bindings.placements.collectionModel}" var="row">
+            <pointLocation address="#{row.location}" type="address">
+              <marker value="#{row.index}"/>
+            </pointLocation>
+          </pointDataLayer>
+        </geographicMap-->
         <selectOneButton value="#{pageFlowScope.section or 'general'}">
             <selectItem label="General" value="general"/>
             <selectItem label="Remediation" value="remediation"/>

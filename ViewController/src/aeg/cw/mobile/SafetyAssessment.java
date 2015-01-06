@@ -5,6 +5,7 @@ public class SafetyAssessment extends Case {
         this.setType("Safety Assessment");
         this.setPriority(Priority.Important);
         
+        // http://www.dhs.state.or.us/caf/safety_model/procedure_manual/ch03/ch3-section5.pdf
         this.addTask("Safety Restrictions","Are safety threats being sufficiently managed in the least restrictive way possible?");
         this.addTask("Find Strengths","Can existing protective capacities (strengths) be built upon to make needed changes?");
         this.addTask("Make a Plan","What is the relationship between identified safety threats and currently diminished protective capacities?");
